@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:14:52 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 16:01:44 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/21 16:54:16 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	main(int argc, char **argv)
 		vars.map->fd = open(argv[argc - 1], O_RDONLY);
 	check_fd(&vars, argc, argv);
 	vars.check_save = check_save(argc, argv);
+	parse_scene(&vars, argv, argc);
 	if (parse_scene(&vars, argv, argc))
 	{
 		if (vars.img->mlx_ptr == NULL)
