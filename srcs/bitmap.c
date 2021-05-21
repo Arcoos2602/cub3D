@@ -6,11 +6,10 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 14:47:02 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 12:27:37 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/21 15:59:52 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx_opengl_20191021/mlx.h"
 #include "../includes/Cub3D.h"
 #include "../Libft/includes/libft.h"
 #include <stdio.h>

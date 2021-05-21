@@ -6,14 +6,12 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:14:52 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 12:21:04 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/21 16:01:44 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx_opengl_20191021/mlx.h"
 #include "../includes/Cub3D.h"
 #include "../Libft/includes/libft.h"
-#include <stdio.h>
 
 int	check_save(int argc, char **argv)
 {
@@ -50,8 +48,7 @@ void	check_res(t_all vars, int x, int y)
 
 	a = 0;
 	b = 0;
-	(void)vars;
-	//mlx_get_screen_size(vars.img->mlx_ptr, &a, &b);
+	mlx_get_screen_size(vars.img->mlx_ptr, &a, &b);
 	if (a > x)
 		x = a;
 	if (b > y)
@@ -79,7 +76,7 @@ int	main(int argc, char **argv)
 				vars.map->res_x, vars.map->res_y, "Cub3D");
 		if (vars.img->win_ptr == NULL)
 			ft_error(16, &vars);
-        //check_res(vars, vars.map->res_x, vars.map->res_y);
+		check_res(vars, vars.map->res_x, vars.map->res_y);
 		mlx(vars);
 	}
 	exit_game(&vars, 0);

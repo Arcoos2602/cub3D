@@ -6,12 +6,12 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 17:40:38 by thomas            #+#    #+#             */
-/*   Updated: 2021/05/21 12:00:40 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/21 15:59:43 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
-#include "../minilibx_opengl_20191021/mlx.h"
+
 #include "../Libft/includes/libft.h"
 
 static void	calc(t_draw_sprite *drw, t_all *vars)

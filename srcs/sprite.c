@@ -6,12 +6,12 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 14:23:30 by thomas            #+#    #+#             */
-/*   Updated: 2021/05/21 12:36:24 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/21 15:59:43 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
-#include "../minilibx_opengl_20191021/mlx.h"
+
 #include "../Libft/includes/libft.h"
 
 static void	next_sprite(t_sprites *actual, t_sprites *new, t_all *vars)

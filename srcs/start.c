@@ -6,11 +6,10 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 10:25:26 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/20 15:08:09 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/21 16:00:47 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minilibx_opengl_20191021/mlx.h"
 #include "../includes/Cub3D.h"
 
 void	start_cam(t_all *vars, double dir_x, double plane_x, double plane_y)
