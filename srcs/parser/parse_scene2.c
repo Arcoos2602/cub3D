@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/15 09:55:07 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 09:19:11 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/21 13:16:03 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,6 @@ void	recup_textures(t_all *vars, int *x, int *y)
 
 void	recup_map(t_all *vars, int *x, int *y, int cpt_line)
 {
-	int		tmp1;
-	int		tmp2;
-
-	tmp1 = *x;
-	tmp2 = *y;
 	while (ft_isdigit(vars->map->tab[*x][0]) == 0
 			&& ft_iswhitespace(vars->map->tab[*x][0]) == 0)
 		++*x;
