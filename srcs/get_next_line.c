@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 14:49:55 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 10:20:23 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/21 13:28:41 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_return(char **str, char **line, int ret, int fd)
 {
 	if (ret < 0)
 		return (-1);
-	else if ((ret == 0 && str[fd] == NULL) || str[fd] == '\0')
+	else if ((ret == 0 && str[fd] == NULL))
 	{
 		*line = ft_strdup("");
 		return (0);

@@ -6,14 +6,9 @@
 #    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/04 15:35:18 by tcordonn          #+#    #+#              #
-#    Updated: 2021/05/21 13:01:00 by thomas           ###   ########.fr        #
+#    Updated: 2021/05/21 13:59:00 by thomas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME = Cub3D
-HEAD := -I./includes/ -I./minilibx_opengl_20191021 -I./libft/includes
-
-CFLAGS = -Wall -Wextra -Werror
 
 SRCS := \
 	srcs/init.c \
@@ -41,29 +36,37 @@ SRCS := \
 	srcs/sprite.c \
 	srcs/sprite2.c
 
-LMLX = minilibx_opengl_20191021/libmlx.a -framework OpenGL -framework AppKit
+OBJS		=	$(SRCS:.c=.o)
 
-LMLX_2 = -L./libft -lft ./minilibx-linux/libmlx.a -lm -lbsd -lX11 -lXext
+RM			=	rm -f
 
-OBJS = $(SRCS:.c=.o)
+CC			= clang
+FLAGS		= -Wall -Werror -Wextra
+
+MLX			= ./minilibx_linux/libmlx.a
+MLXLINUX	= ./minilibx_linux/libmlx_Linux.a
+
+NAME		=	Cub3D
+
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C ./Libft
-	gcc -g $(HEAD) $(LMLX) $(OBJS) -o $(NAME) -L./libft -lft
+	@make -s do_configure -C minilibx-linux -f Makefile
+	${CC} ${OBJS} $(HEADERS) $(MLX) $(MLXLINUX) -L minilibx_linux -lX11 -lXext -lm -o $(NAME)
+	@echo "Cub3d done"
 
-G: $(OBJS)
-	make -C ./Libft
-	gcc -g3 -fsanitize=address $(CFLAGS) $(HEAD) $(LMLX) $(OBJS) -o $(NAME) -L./libft -lft
+$(MLX):
+	@make -C mlx
+	@mv mlx/$(MLX) .
 
 clean:
-	rm -rf $(OBJS) objs
-	make clean -sC libft
+	@make -C mlx clean
+	$(RM) $(OBJS)
 
-fclean:
-	make fclean -sC libft
-	rm -rf $(NAME) $(OBJS) objs screen.bmp
+fclean: clean
+	$(RM) $(NAME) $(MLX)
 
-re:	fclean
-	make all
+re: fclean all
+
+.PHONY: all clean fclean re
