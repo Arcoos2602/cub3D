@@ -24,10 +24,8 @@ void	fd_arg(t_all *vars, char **argv, int argc)
 void	ft_free_tab(t_all *vars, int *len)
 {
 	int		x;
-	int		y;
 
 	x = 0;
-	y = 0;
 	--*len;
 	while (x++ < *len)
 	{
