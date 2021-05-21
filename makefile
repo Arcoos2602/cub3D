@@ -6,7 +6,7 @@
 #    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/04 15:35:18 by tcordonn          #+#    #+#              #
-#    Updated: 2021/05/21 13:59:00 by thomas           ###   ########.fr        #
+#    Updated: 2021/05/21 14:18:25 by thomas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,37 +36,26 @@ SRCS := \
 	srcs/sprite.c \
 	srcs/sprite2.c
 
-OBJS		=	$(SRCS:.c=.o)
-
 RM			=	rm -f
 
-CC			= clang
-FLAGS		= -Wall -Werror -Wextra
+LMLX_2 = -L./libft -lft ./minilibx_linux/libmlx.a -lm -lbsd -lX11 -lXext
 
-MLX			= ./minilibx_linux/libmlx.a
-MLXLINUX	= ./minilibx_linux/libmlx_Linux.a
-
-NAME		=	Cub3D
-
+BOFT = $(BO:.c=.o)
+OBJ = $(SRCS:.c=.o)
+HEAD = include
+CFLAGS = -Wall -Werror -Wextra -lm -I $(HEAD)
+CC = gcc
+LIB = ./libft/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@make -s do_configure -C minilibx-linux -f Makefile
-	${CC} ${OBJS} $(HEADERS) $(MLX) $(MLXLINUX) -L minilibx_linux -lX11 -lXext -lm -o $(NAME)
-	@echo "Cub3d done"
-
-$(MLX):
-	@make -C mlx
-	@mv mlx/$(MLX) .
-
-clean:
-	@make -C mlx clean
-	$(RM) $(OBJS)
-
-fclean: clean
-	$(RM) $(NAME) $(MLX)
+$(NAME): $(OBJ)
+	gcc  $(SRCS) $(CFLAGS) -o $(NAME) $(LMLX_2)
+clean :
+	rm -f $(OBJ)
+fclean : clean
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: bonus  all clean fclean r e
