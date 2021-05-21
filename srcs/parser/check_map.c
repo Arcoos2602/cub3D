@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minilibx_opengl_20191021/mlx.h"
 #include "../../includes/Cub3D.h"
 
 void	start_pos(t_all *vars, int *x_map, int *y_map, int *check_player)
@@ -22,6 +21,7 @@ void	start_pos(t_all *vars, int *x_map, int *y_map, int *check_player)
 	{
 		vars->user->pos_x = (double)*(x_map - 1) + 0.5;
 		vars->user->pos_y = (double)*(x_map) + 0.5;
+		printf("%f   ", vars->user->pos_x);
 		start_player(vars, vars->map->world_map[*x_map][*y_map]);
 		vars->map->world_map[*x_map][*y_map] = '0';
 		++*check_player;

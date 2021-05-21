@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minilibx_opengl_20191021/mlx.h"
 #include "../../includes/Cub3D.h"
 #include "../../Libft/includes/libft.h"
 #include <stdio.h>

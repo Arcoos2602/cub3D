@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minilibx_opengl_20191021/mlx.h"
 #include "../../includes/Cub3D.h"
 
 void	save_map2(t_all *vars, int *x, int check_player)
