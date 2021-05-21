@@ -55,6 +55,8 @@ void	check_res(t_all vars, int x, int y)
 		y = b;
 }
 
+#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
 	t_all	vars;
@@ -76,7 +78,7 @@ int	main(int argc, char **argv)
 				vars.map->res_x, vars.map->res_y, "Cub3D");
 		if (vars.img->win_ptr == NULL)
 			ft_error(16, &vars);
-		check_res(vars, vars.map->res_x, vars.map->res_y);
+		//check_res(vars, vars.map->res_x, vars.map->res_y);
 		mlx(vars);
 	}
 	exit_game(&vars, 0);
