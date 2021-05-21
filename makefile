@@ -38,25 +38,22 @@ SRCS := \
 	srcs/sprite.c \
 	srcs/sprite2.c
 
-MLX = -I ./include -lmlx -lm -framework OpenGL -framework AppKit
-LMLX = -L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -L/usr/include -lm -lbsd -lX11 -lXext
-LMLX_2 = -L./libft -lft ./minilibx_linux/libmlx.a -lm -lbsd -lX11 -lXext
-LMLX_3 = -L./libft -lft  -lmlx  -lm -lbsd -lX11 -lXext
+LMLX_3 = -L./Libft -L ./minilibx_linux -lft  -lmlx  -lm -lbsd -lX11 -lXext
 BOFT = $(BO:.c=.o)
 OBJ = $(SRCS:.c=.o)
 HEAD = include
 CFLAGS = -Wall -Werror -Wextra -lm -I $(HEAD)
 CC = gcc
-LIB = ./libft/libft.a
+LIB = ./Libft/libft.a
 all: $(NAME)
 $(NAME): $(OBJ)
-	make -C ./libft
+	make -C ./Libft
 	gcc $(SRCS) $(CFLAGS) -o $(NAME) $(LMLX_3)
 clean :
-	make -C ./libft clean
+	make -C ./Libft clean
 	rm -f $(OBJ)
 fclean : clean
-	make -C ./libft fclean
+	make -C ./Libft fclean
 	rm -f $(NAME)
 re: fclean all
 .PHONY: bonus  all clean fclean r e
