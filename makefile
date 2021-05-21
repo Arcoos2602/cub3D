@@ -6,11 +6,14 @@
 #    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/04 15:35:18 by tcordonn          #+#    #+#              #
-#    Updated: 2021/05/21 15:29:36 by thomas           ###   ########.fr        #
+#    Updated: 2021/05/21 15:38:42 by thomas           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS := srcs/init.c \
+NAME = Cub3D
+
+SRCS := \
+	srcs/init.c \
 	srcs/init2.c \
 	srcs/main.c \
 	srcs/parser/check_map.c \
@@ -35,37 +38,25 @@ SRCS := srcs/init.c \
 	srcs/sprite.c \
 	srcs/sprite2.c
 
-NAME = Cub3D
-
-MLX_DIR = minilibx_linux
-MLX = libmlx.a 
-CC = clang
-
-CFLAGS = -Wall -Wextra -Werror
-
-OBJ_DIR = obj
-SRC_DIR = srcs
-HEAD = includes
-
-all:
-	$(MAKE) -j $(NAME)
-
+MLX = -I ./include -lmlx -lm -framework OpenGL -framework AppKit
+LMLX = -L./libft -lft -I/usr/local/include -L/usr/local/lib -lmlx -L/usr/include -lm -lbsd -lX11 -lXext
+LMLX_2 = -L./libft -lft ./minilibx_linux/libmlx.a -lm -lbsd -lX11 -lXext
+LMLX_3 = -L./libft -lft  -lmlx  -lm -lbsd -lX11 -lXext
+BOFT = $(BO:.c=.o)
+OBJ = $(SRCS:.c=.o)
+HEAD = include
+CFLAGS = -Wall -Werror -Wextra -lm -I $(HEAD)
+CC = gcc
+LIB = ./libft/libft.a
+all: $(NAME)
 $(NAME): $(OBJ)
-		${CC} $(CFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx -lm -lbsd -lX11 -lXext
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-		@mkdir -p $(OBJ_DIR)
-		${CC} $(CFLAGS) -I $(HEAD) -I $(MLX_DIR) -c $< -o $@
-
-.gitignore:
-		@echo $(NAME)
-
-clean:
-	rm -rf $(OBJ_DIR)
-
-fclean:	clean
-	@rm -rf $(NAME)
-
+	make -C ./libft
+	gcc $(SRCS) $(CFLAGS) -o $(NAME) $(LMLX_3)
+clean :
+	make -C ./libft clean
+	rm -f $(OBJ)
+fclean : clean
+	make -C ./libft fclean
+	rm -f $(NAME)
 re: fclean all
-
-.PHONY: all, clean, fclean, re
+.PHONY: bonus  all clean fclean r e
