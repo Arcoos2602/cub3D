@@ -1,0 +1,56 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_parser.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/29 10:56:02 by tcordonn          #+#    #+#             */
+/*   Updated: 2021/05/21 08:48:42 by thomas           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../../minilibx_opengl_20191021/mlx.h"
+#include "../../includes/Cub3D.h"
+#include "../../Libft/includes/libft.h"
+
+unsigned long	convert_rgb_to_hex(int r, int g, int b)
+{
+	return (r << 16 | g << 8 | b);
+}
+
+void	check_texture_fd(char *str)
+{
+	int		fd;
+
+	fd = open(str, O_RDONLY);
+	if (fd < 0)
+	{
+		ft_putstr_fd("No such path to texture :\n", 2);
+		ft_putstr_fd(str, 2);
+		ft_putchar_fd('\n', 2);
+		exit(EXIT_FAILURE);
+	}
+	close(fd);
+}
+
+void	recup_textures2(t_all *vars, int *x, int *tmp, int *y)
+{
+	if (vars->map->tab[*x][*y] == 'E' && vars->map->tab[*x][*y + 1] == 'A')
+	{
+		if (vars->check->east == 1)
+			ft_error(6, vars);
+		*tmp += 2;
+		vars->check_tex = 'E';
+		save_textures(vars, x, tmp);
+		vars->check->east++;
+	}
+}
+
+void	save_textures2(t_all *vars, int *x, int strt, int l)
+{
+	if (vars->check_tex == 'W')
+		vars->textures_op->west = ft_substr(vars->map->tab[*x], strt, l + 1);
+	if (vars->check_tex == 'P')
+		vars->textures_op->sprite = ft_substr(vars->map->tab[*x], strt, l + 1);
+}
