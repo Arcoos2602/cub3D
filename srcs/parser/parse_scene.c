@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 18:02:09 by thomas            #+#    #+#             */
-/*   Updated: 2021/05/24 19:26:49 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/24 19:32:39 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	malloc_tab(t_all *vars)
 		free(line);
 	}
 	vars->map->tab[x] = ft_strdup(line);
+	vars->map->tab[x++] = NULL;
 	close(vars->map->fd);
 	free(line);
 	return (1);
@@ -72,6 +73,10 @@ int	parse_scene(t_all *vars, char **argv, int argc)
 	fd_arg(vars, argv, argc);
 	if (!(malloc_tab(vars)))
 		return (-1);
+	while (vars->map->tab[x++] != NULL)
+		printf("%s", vars->map->tab[x]);
+	x = 0;
+	exit(0);
 	while (x < cpt_line)
 	{
 		y = 0;
@@ -82,7 +87,6 @@ int	parse_scene(t_all *vars, char **argv, int argc)
 		}
 		x++;
 	}
-	exit(0);
 	check_elem(vars);
 	return (1);
 }
