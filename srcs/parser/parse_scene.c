@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 18:02:09 by thomas            #+#    #+#             */
-/*   Updated: 2021/05/24 19:32:39 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/24 19:33:46 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	malloc_tab(t_all *vars)
 		free(line);
 	}
 	vars->map->tab[x] = ft_strdup(line);
-	vars->map->tab[x++] = NULL;
+	//vars->map->tab[x++] = NULL;
 	close(vars->map->fd);
 	free(line);
 	return (1);
