@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 18:02:09 by thomas            #+#    #+#             */
-/*   Updated: 2021/05/21 16:53:22 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/24 19:26:49 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int	parse_scene(t_all *vars, char **argv, int argc)
 		}
 		x++;
 	}
+	exit(0);
 	check_elem(vars);
 	return (1);
 }
