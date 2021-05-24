@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:14:41 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 16:55:42 by thomas           ###   ########.fr       */
+/*   Updated: 2021/05/24 19:25:27 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	start_pos(t_all *vars, int *x_map, int *y_map, int *check_player)
 	{
 		vars->user->pos_x = (double)*(x_map - 1) + 0.5;
 		vars->user->pos_y = (double)*(x_map) + 0.5;
-		vars->user->pos_x = 4.5;
-		vars->user->pos_y = 5.5;
 		start_player(vars, vars->map->world_map[*x_map][*y_map]);
 		vars->map->world_map[*x_map][*y_map] = '0';
 		++*check_player;
