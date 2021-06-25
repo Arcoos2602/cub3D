@@ -14,6 +14,7 @@
 
 void	start_pos(t_all *vars, int *x_map, int *y_map, int *check_player)
 {
+	printf("%d\n %d\n", *x_map, *y_map);
 	if (vars->map->world_map[*x_map][*y_map] == 'N'
 		|| vars->map->world_map[*x_map][*y_map] == 'S'
 		|| vars->map->world_map[*x_map][*y_map] == 'E'
@@ -85,6 +86,7 @@ int	save_map(t_all *vars, int *x, int *y, int cpt_line)
 
 	x_map = 0;
 	check_player = 0;
+	printf("cpt_line %d\n", cpt_line);
 	vars->map->world_map = malloc(sizeof(char *) * cpt_line - *x + 1);
 	if (vars->map->world_map == NULL)
 		return (-1);

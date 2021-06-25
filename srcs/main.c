@@ -55,8 +55,6 @@ void	check_res(t_all vars, int x, int y)
 		y = b;
 }
 
-#include <stdio.h>
-
 int	main(int argc, char **argv)
 {
 	t_all	vars;

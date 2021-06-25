@@ -42,7 +42,7 @@ LMLX_3 = -L./Libft -L ./minilibx_linux -lft  -lmlx  -lm -lbsd -lX11 -lXext
 BOFT = $(BO:.c=.o)
 OBJ = $(SRCS:.c=.o)
 HEAD = include
-CFLAGS = -Wall -Werror -Wextra -lm -I $(HEAD)
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address -lm -I $(HEAD)
 CC = gcc
 LIB = ./Libft/libft.a
 all: $(NAME)

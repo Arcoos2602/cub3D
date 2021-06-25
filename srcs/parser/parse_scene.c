@@ -73,10 +73,7 @@ int	parse_scene(t_all *vars, char **argv, int argc)
 	fd_arg(vars, argv, argc);
 	if (!(malloc_tab(vars)))
 		return (-1);
-	while (vars->map->tab[x++] != NULL)
-		printf("%s", vars->map->tab[x]);
 	x = 0;
-	exit(0);
 	while (x < cpt_line)
 	{
 		y = 0;
