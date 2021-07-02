@@ -42,7 +42,6 @@ int	malloc_tab(t_all *vars)
 		free(line);
 	}
 	vars->map->tab[x] = ft_strdup(line);
-	//vars->map->tab[x++] = NULL;
 	close(vars->map->fd);
 	free(line);
 	return (1);
