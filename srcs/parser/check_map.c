@@ -86,9 +86,7 @@ int	save_map(t_all *vars, int *x, int *y, int cpt_line)
 
 	x_map = 0;
 	check_player = 0;
-	vars->map->world_map = malloc(sizeof(char *) * cpt_line - *x + 1);
-	printf("%d\n", x);
-	printf("cpt_line %d\n", cpt_line - *x + 1);
+	vars->map->world_map = malloc(sizeof(char *) * cpt_line - *x);
 	if (vars->map->world_map == NULL)
 		return (-1);
 	while (*x < cpt_line)
@@ -96,11 +94,16 @@ int	save_map(t_all *vars, int *x, int *y, int cpt_line)
 		*y = 0;
 		y_map = 0;
 		vars->map->world_map[x_map] = ft_strdup(vars->map->tab[*x]);
-		while (vars->map->tab[*x][++*y] != '\0')
-			start_pos(vars, &x_map, &y_map, &check_player);
+		while (vars->map->world_map[x_map][y_map] != '\0')
+		{
+			printf("%c\n", vars->map->world_map[*x][*y]);
+		}
+		/*while (vars->map->tab[*x][++*y] != '\0')
+			start_pos(vars, &x_map, &y_map, &check_player);*/
 		++*x;
 		x_map++;
 	}
+	exit(0);
 	vars->map->world_map[x_map] = NULL;
 	save_map2(vars, x, check_player);
 	return (1);
