@@ -12,21 +12,20 @@
 
 #include "../../includes/Cub3D.h"
 
-void	start_pos(t_all *vars, int *x_map, int *y_map, int *check_player)
+void	start_pos(t_all *vars, int *x_map, int *y, int *check_player)
 {
 	//printf("%d\n %d\n", *x_map, *y_map);
-	if (vars->map->world_map[*x_map][*y_map] == 'N'
-		|| vars->map->world_map[*x_map][*y_map] == 'S'
-		|| vars->map->world_map[*x_map][*y_map] == 'E'
-		|| vars->map->world_map[*x_map][*y_map] == 'W')
+	if (vars->map->world_map[*x_map][*y] == 'N'
+		|| vars->map->world_map[*x_map][*y] == 'S'
+		|| vars->map->world_map[*x_map][*y] == 'E'
+		|| vars->map->world_map[*x_map][*y] == 'W')
 	{
 		vars->user->pos_x = (double)*(x_map - 1) + 0.5;
 		vars->user->pos_y = (double)*(x_map) + 0.5;
-		start_player(vars, vars->map->world_map[*x_map][*y_map]);
-		vars->map->world_map[*x_map][*y_map] = '0';
+		start_player(vars, vars->map->world_map[*x_map][*y]);
+		vars->map->world_map[*x_map][*y] = '0';
 		++*check_player;
 	}
-	++*y_map;
 }
 
 int	ft_compare_c_to_s(char c, char *str)
@@ -82,7 +81,6 @@ int	save_map(t_all *vars, int *x, int *y, int cpt_line)
 {
 	int		check_player;
 	int		x_map;
-	int		y_map;
 
 	x_map = 0;
 	check_player = 0;
@@ -92,14 +90,17 @@ int	save_map(t_all *vars, int *x, int *y, int cpt_line)
 	while (*x < cpt_line)
 	{
 		*y = 0;
-		y_map = 0;
 		vars->map->world_map[x_map] = ft_strdup(vars->map->tab[*x]);
-		while (vars->map->world_map[x_map][y_map] != '\0')
+		/*while (vars->map->world_map[x_map][*y] != '\0')
 		{
-			printf("%c\n", vars->map->world_map[*x][*y]);
+			printf("%c\n", vars->map->world_map[x_map][*y]);
+			++*y;
+		}*/
+		while (vars->map->tab[x_map][*y] != '\0')
+		{
+			start_pos(vars, &x_map, y, &check_player);
+			y++;
 		}
-		/*while (vars->map->tab[*x][++*y] != '\0')
-			start_pos(vars, &x_map, &y_map, &check_player);*/
 		++*x;
 		x_map++;
 	}
