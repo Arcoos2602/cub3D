@@ -21,10 +21,10 @@
 # include <unistd.h>
 # include <errno.h>
 # define BUFFER_SIZE 1096
-# define FORWARD 122
+# define FORWARD 119
 # define BACKWARD 115
 # define RIGHT 100
-# define LEFT 113
+# define LEFT 97
 # define TURNLEFT 65361
 # define TURNRIGHT 65363
 # define ECHAP 65307
@@ -205,7 +205,6 @@ typedef struct s_draw_sprite
 typedef struct s_all
 {
 	int					count_elem;
-	int					check_save;
 	int					check_init;
 	char				check_tex;
 	t_image				*img;
@@ -280,5 +279,7 @@ t_sprite				*list_to_tab(t_all *vars);
 int						draw_sprite(t_all *vars, t_ray *ray);
 void					sprites_order(t_all *vars, t_sprite *sprites,
 							int nbr_sprites);
+void					check_res(t_all *vars, int *x, int *y);
+void					check_tex(char *tex, t_all *vars);
 
 #endif

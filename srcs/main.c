@@ -13,12 +13,12 @@
 #include "../includes/Cub3D.h"
 #include "../Libft/includes/libft.h"
 
-int	check_save(int argc, char **argv)
-{
-	if (argc == 3 && ft_strncmp("--save", argv[argc - 1], 6) == 0)
-		return (1);
-	return (0);
-}
+/*
+
+1. ID la plusieurs fois
+2. Corriger erreurs graphiques
+3. Leaks
+*/
 
 int	init_img(t_all *vars)
 {
@@ -41,18 +41,18 @@ void	mlx(t_all vars)
 	mlx_loop(vars.img->mlx_ptr);
 }
 
-void	check_res(t_all vars, int x, int y)
+void	check_res(t_all *vars, int *x, int *y)
 {
 	int	a;
 	int	b;
 
 	a = 0;
 	b = 0;
-	mlx_get_screen_size(vars.img->mlx_ptr, &a, &b);
-	if (a > x)
-		x = a;
-	if (b > y)
-		y = b;
+	mlx_get_screen_size(vars->img->mlx_ptr, &a, &b);
+	if (*x > a)
+		*x = a;
+	if (*y > b)
+		*y = b;
 }
 
 int	main(int argc, char **argv)
@@ -67,8 +67,6 @@ int	main(int argc, char **argv)
 	else
 		vars.map->fd = open(argv[argc - 1], O_RDONLY);
 	check_fd(&vars, argc, argv);
-	vars.check_save = check_save(argc, argv);
-	parse_scene(&vars, argv, argc);
 	if (parse_scene(&vars, argv, argc))
 	{
 		if (vars.img->mlx_ptr == NULL)
@@ -77,7 +75,6 @@ int	main(int argc, char **argv)
 				vars.map->res_x, vars.map->res_y, "Cub3D");
 		if (vars.img->win_ptr == NULL)
 			ft_error(16, &vars);
-		//check_res(vars, vars.map->res_x, vars.map->res_y);
 		mlx(vars);
 	}
 	exit_game(&vars, 0);

@@ -33,7 +33,6 @@ SRCS := \
 	srcs/exit2.c \
 	srcs/texture.c \
 	srcs/start.c \
-	srcs/bitmap.c \
 	srcs/texture2.c \
 	srcs/sprite.c \
 	srcs/sprite2.c
@@ -42,7 +41,7 @@ LMLX_3 = -L./Libft -L ./minilibx_linux -lft  -lmlx  -lm -lbsd -lX11 -lXext
 BOFT = $(BO:.c=.o)
 OBJ = $(SRCS:.c=.o)
 HEAD = include
-CFLAGS = -g3 -fsanitize=address -lm -I $(HEAD) #-Wall -Wextra -Werror
+CFLAGS =  -g3 -fsanitize=address -lm -I$(HEAD) #-Wall -Wextra -Werror
 CC = gcc
 LIB = ./Libft/libft.a
 all: $(NAME)

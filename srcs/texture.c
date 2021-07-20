@@ -15,12 +15,9 @@
 #include "../Libft/includes/libft.h"
 #include <stdio.h>
 
-static void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
+static void	my_mlx_pixel_put(int *img, int *color)
 {
-	char	*dst;
-
-	dst = img->addr + (y * img->line_length + x * (img->bpp / 8));
-	*(unsigned int *)dst = color;
+	*img = *color;
 }
 
 void	texture_put(t_data *texture, t_all *vars, t_line *line, t_ray *ray)
@@ -49,16 +46,9 @@ void	verline_texture(t_data *texture, t_all *vars, t_line *line, t_ray *ray)
 {
 	int		y_max;
 
-	if (line->start < line->end)
-	{
-		line->y = line->start;
-		y_max = line->end;
-	}
-	else
-	{
-		line->y = line->end;
-		y_max = line->start;
-	}
+	line->y = line->end;
+	y_max = line->start;
+
 	if (line->y >= 0)
 	{
 		while (line->y < y_max)
@@ -87,7 +77,7 @@ void	verline_color(t_all *vars, t_line *line, int color)
 	{
 		while (line->y < y_max)
 		{
-			my_mlx_pixel_put(vars->img, line->x, line->y, color);
+			my_mlx_pixel_put((int*)(&vars->img->addr[(line->y * vars->img->line_length + line->x * (vars->img->bpp / 8))]), &color);
 			line->y++;
 		}
 	}
@@ -116,7 +106,7 @@ void	texture(t_all *vars, t_ray *ray)
 	line->end = ray->draw_start;
 	verline_color(vars, line, vars->map->sky_color);
 	line->start = ray->draw_end;
-	line->end = vars->map->res_x;
+	line->end = vars->map->res_y;
 	verline_color(vars, line, vars->map->floor_color);
 	vars->check_init++;
 	free(line);

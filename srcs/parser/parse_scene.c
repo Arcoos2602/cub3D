@@ -42,6 +42,7 @@ int	malloc_tab(t_all *vars)
 		free(line);
 	}
 	vars->map->tab[x] = ft_strdup(line);
+	vars->map->tab[x + 1] = NULL;
 	close(vars->map->fd);
 	free(line);
 	return (1);
@@ -66,21 +67,16 @@ int	parse_scene(t_all *vars, char **argv, int argc)
 	y = 0;
 	x = 0;
 	cpt_line = ft_cpt_line(vars);
-	vars->map->tab = malloc(sizeof(char *) * cpt_line + 1);
+	vars->map->tab = malloc(sizeof(char *) * (cpt_line + 1));
 	if (vars->map->tab == NULL)
 		return (-1);
 	fd_arg(vars, argv, argc);
 	if (!(malloc_tab(vars)))
 		return (-1);
 	x = 0;
-	while (x < cpt_line)
+	while (vars->count_elem < 8 && vars->map->tab[x] != NULL)
 	{
-		y = 0;
-		while (vars->map->tab[x][y])
-		{
-			recup_all(vars, &x, &y, cpt_line);
-			y++;
-		}
+		recup_all(vars, &x, &y, cpt_line);
 		x++;
 	}
 	check_elem(vars);

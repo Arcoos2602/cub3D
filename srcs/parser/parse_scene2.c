@@ -72,14 +72,23 @@ void	recup_map(t_all *vars, int *x, int *y, int cpt_line)
 	vars->count_elem++;
 }
 
-void	recup_res(t_all *vars, int *x, int tmp)
+void	recup_res(t_all *vars, int *x, int tmp, char *str)
 {
+	int		i;
+
+	i = -1;
 	if (vars->check->res == 1)
 		ft_error(5, vars);
+	while (str[++i])
+	{
+		if (ft_isdigit(str[i]) == 0 && str[i] != ' ')
+			ft_error(18, vars);
+	}
 	vars->map->res_x = ft_atoi_free(save_num(vars, x, &tmp));
 	if (vars->map->tab[*x][tmp] != 32)
 		ft_error(4, vars);
 	vars->map->res_y = ft_atoi_free(save_num(vars, x, &tmp));
+	check_res(vars, &vars->map->res_x, &vars->map->res_y);
 	vars->check->res++;
 	vars->count_elem++;
 }
@@ -91,7 +100,7 @@ void	recup_all(t_all *vars, int *x, int *y, int cpt_line)
 	if (vars->map->tab[*x][*y] == 'R' && *y == 0)
 	{
 		tmp = *y + 1;
-		recup_res(vars, x, tmp);
+		recup_res(vars, x, tmp, &vars->map->tab[*x][tmp]);
 	}
 	if (vars->map->tab[*x][*y] == 'F' && *y == 0)
 	{

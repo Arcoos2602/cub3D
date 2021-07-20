@@ -82,8 +82,6 @@ int	raycasting(t_all *vars)
 		do_raycasting(ray, vars);
 	if (!draw_sprite(vars, ray))
 		return (-1);
-	if (vars->check_save == 1)
-		ft_bmp(vars->img, vars);
 	mlx_put_image_to_window(vars->img->mlx_ptr,
 		vars->img->win_ptr, vars->img->img_ptr, 0, 0);
 	free(ray->z_buffer);

@@ -33,7 +33,7 @@ void	check_fd(t_all *vars, int argc, char **argv)
 	int		check;
 
 	check = 1;
-	if (argc >= 3 && ft_strncmp("--save", argv[argc - 1], 6))
+	if (argc >= 3)
 	{
 		ft_putstr_fd("Too much arguments please give only one scene\n", 2);
 		exit(EXIT_FAILURE);
@@ -104,6 +104,6 @@ void	ft_error(int n, t_all *vars)
 	if (n == 7)
 		ft_putstr_fd("Error\nA floor or sky id if here several times\n", 2);
 	ft_error2(n, &check);
-	free_all(vars, check);
+	//free_all(vars, check);
 	exit(EXIT_FAILURE);
 }

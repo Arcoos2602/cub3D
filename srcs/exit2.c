@@ -23,6 +23,14 @@ void	free_map(t_map *map)
 	free(map->world_map[x]);
 }
 
+void	ft_error3(int n, int *check)
+{
+	if (n == 18)
+		ft_putstr_fd("Error\nOnly numbers in res please\n", 2);
+	if (n == 19)
+		ft_putstr_fd("Error\nPlease only use .xpm for textures\n", 2);
+}
+
 void	ft_error2(int n, int *check)
 {
 	if (n == 8)
@@ -36,7 +44,7 @@ void	ft_error2(int n, int *check)
 	if (n == 12)
 		ft_putstr_fd("Error\n,Wrong character in the map\n", 2);
 	if (n == 13)
-		ft_putstr_fd("Error\nInfo are missing", 2);
+		ft_putstr_fd("Error\nOne or more element are missing\n", 2);
 	if (n == 14)
 		ft_putstr_fd("Error\nImage reading has failed", 2);
 	if (n == 15)
@@ -45,4 +53,7 @@ void	ft_error2(int n, int *check)
 		ft_putstr_fd("Error\nFails to create a new window", 1);
 	if (n == 15 || n == 16)
 		--*check;
+	if (n == 17)
+		ft_putstr_fd("Error\nNo players", 1);
+	ft_error3(n, check);
 }

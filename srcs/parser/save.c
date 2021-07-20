@@ -110,14 +110,11 @@ void	save_textures(t_all *vars, int *x, int *y)
 	check_texture_fd(str_check);
 	free(str_check);
 	if (vars->check_tex == 'N')
+	{
 		vars->textures_op->north = ft_substr(
-				vars->map->tab[*x], start, len + 1);
-	if (vars->check_tex == 'S')
-		vars->textures_op->south = ft_substr(
-				vars->map->tab[*x], start, len + 1);
-	if (vars->check_tex == 'E')
-		vars->textures_op->east = ft_substr(
-				vars->map->tab[*x], start, len + 1);
+		vars->map->tab[*x], start, len + 1);
+		check_tex(vars->textures_op->north, vars);
+	}
 	save_textures2(vars, x, start, len);
 	vars->count_elem++;
 }

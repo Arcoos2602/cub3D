@@ -48,8 +48,38 @@ void	recup_textures2(t_all *vars, int *x, int *tmp, int *y)
 
 void	save_textures2(t_all *vars, int *x, int strt, int l)
 {
+	if (vars->check_tex == 'S')
+	{
+		vars->textures_op->south = ft_substr(
+				vars->map->tab[*x], strt, l + 1);
+		check_tex(vars->textures_op->south, vars);
+	}
+	if (vars->check_tex == 'E')
+	{
+		vars->textures_op->east = ft_substr(
+				vars->map->tab[*x], strt, l + 1);
+		check_tex(vars->textures_op->east, vars);
+	}
 	if (vars->check_tex == 'W')
-		vars->textures_op->west = ft_substr(vars->map->tab[*x], strt, l + 1);
+	{
+		vars->textures_op->west = ft_substr(
+				vars->map->tab[*x], strt, l + 1);
+		check_tex(vars->textures_op->west, vars);
+	}
 	if (vars->check_tex == 'P')
-		vars->textures_op->sprite = ft_substr(vars->map->tab[*x], strt, l + 1);
+	{
+		vars->textures_op->sprite = ft_substr(
+				vars->map->tab[*x], strt, l + 1);
+		check_tex(vars->textures_op->sprite, vars);
+	}
+}
+
+void check_tex(char *tex, t_all *vars)
+{
+	int		i;
+	int		len;
+
+	len = ft_strlen(tex);
+	if (ft_strncmp("xpm", &tex[len - 3], 3) != 0)
+		ft_error(19, vars);
 }
