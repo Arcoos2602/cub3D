@@ -64,7 +64,7 @@ void	recup_textures(t_all *vars, int *x, int *y)
 }
 
 void	recup_map(t_all *vars, int *x, int *y, int cpt_line)
-{
+{ 
 	while (ft_isdigit(vars->map->tab[*x][0]) == 0
 			&& ft_iswhitespace(vars->map->tab[*x][0]) == 0)
 		++*x;

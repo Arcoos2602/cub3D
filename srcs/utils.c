@@ -21,17 +21,14 @@ void	fd_arg(t_all *vars, char **argv, int argc)
 		vars->map->fd = open(argv[argc - 1], O_RDONLY);
 }
 
-void	ft_free_tab(t_all *vars, int *len)
+void	ft_free_tab(t_all *vars)
 {
 	int		x;
 
-	x = 0;
-	--*len;
-	while (x++ < *len)
-	{
+	x = -1;
+	while (vars->map->tab[++x] != NULL)
 		free(vars->map->tab[x]);
-	}
-	free(vars->map->tab[0]);
+	free(vars->map->tab[x]);
 	free(vars->map->tab);
 }
 

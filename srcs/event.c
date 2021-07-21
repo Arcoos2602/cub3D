@@ -86,8 +86,10 @@ int	key_released(int key, void *param)
 
 int	close_window(int key, void *param)
 {
-	(void)param;
+	t_all	*vars;
+
+	vars = (t_all *)param;
 	(void)key;
-	exit(0);
+	exit_game(vars, 1); // SEGV
 	return (1);
 }

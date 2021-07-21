@@ -31,7 +31,7 @@ void	current_stripe(t_ray *ray, t_all *vars)
 		ray->draw_start = 0;
 	ray->draw_end = ray->line_height / 2 + vars->map->res_y / 2;
 	if (ray->draw_end >= vars->map->res_y)
-		ray->draw_end = vars->map->res_y - 1;
+		ray->draw_end = vars->map->res_y;
 }
 
 void	wall(t_ray *ray, t_all *vars)

@@ -57,7 +57,6 @@ void	free_all(t_all *vars, int check)
 	free(vars->user);
 	free(vars->check);
 	free(vars->key);
-	free(vars->bmp);
 	free(vars->cam);
 	free_map(vars->map);
 	free(vars->map);
@@ -66,7 +65,9 @@ void	free_all(t_all *vars, int check)
 	free(vars->textures_op->east);
 	free(vars->textures_op->west);
 	free(vars->textures_op->sprite);
-	free(vars->sprites_on_screen);
+	free(vars->textures_op);
+	if (vars->sprites_on_screen == NULL)
+		free(vars->sprites_on_screen); // free en cascade si besoin
 	free(vars->img);
 	if (check >= 1)
 		while (++i < 5)
@@ -78,7 +79,7 @@ void	exit_game(t_all *vars, int check)
 	mlx_destroy_window(vars->img->mlx_ptr, vars->img->win_ptr);
 	mlx_destroy_image(vars->img->mlx_ptr, vars->img->img_ptr);
 	free(vars->img->mlx_ptr);
-	//free_all(vars, check); probleme
+	free_all(vars, check); //probleme
 	exit(EXIT_SUCCESS);
 }
 
@@ -92,7 +93,7 @@ void	ft_error(int n, t_all *vars)
 	if (n == 1)
 		ft_putstr_fd("Error\nMax value for rgb is 255\n", 2);
 	if (n == 2)
-		ft_putstr_fd("Error\ntoo small resolution\n", 2);
+		ft_putstr_fd("Error\nToo small resolution\n", 2);
 	if (n == 3)
 		ft_putstr_fd("Error\nToo much players\n", 2);
 	if (n == 4)

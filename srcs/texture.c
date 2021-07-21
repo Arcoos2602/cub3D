@@ -22,24 +22,32 @@ static void	my_mlx_pixel_put(int *img, int *color)
 
 void	texture_put(t_data *texture, t_all *vars, t_line *line, t_ray *ray)
 {
-	int		d;
+	long long d;
 
 	d = line->y * texture->line_length - vars->map->res_y * texture->line_length
 		/ 2 + ray->line_height * texture->line_length / 2;
-	line->tex_y = ((d * texture->img_height) / ray->line_height)
-		/ texture->line_length;
-	vars->img->addr[line->y * vars->img->line_length
-		+ line->x * vars->img->bpp / 8]
-		= texture->addr[line->tex_y * texture->line_length
-		+ line->tex_x * (texture->bpp / 8)];
-	vars->img->addr[line->y * vars->img->line_length
-		+ line->x * (vars->img->bpp / 8) + 1]
-		= texture->addr[line->tex_y * texture->line_length
-		+ line->tex_x * (texture->bpp / 8) + 1];
-	vars->img->addr[line->y * vars->img->line_length
-		+ line->x * (vars->img->bpp / 8) + 2]
-		= texture->addr[line->tex_y * texture->line_length
-		+ line->tex_x * (texture->bpp / 8) + 2];
+	/*if (d < 0)
+		printf("AAAAA %lld\n", d);*/
+	line->tex_y = (int)((long long)((d * texture->img_height) / ray->line_height)
+		/ (long long)(texture->line_length));
+	if (line->tex_y < texture->img_height && line->tex_x < texture->img_width)
+	{
+		/*if (line->tex_y * texture->line_length
+			+ line->tex_x * (texture->bpp / 8) < 0)
+			printf("%d %lld\n", line->tex_x, d);*/
+		vars->img->addr[line->y * vars->img->line_length
+			+ line->x * vars->img->bpp / 8]
+			= texture->addr[line->tex_y * texture->line_length
+			+ line->tex_x * (texture->bpp / 8)];
+		vars->img->addr[line->y * vars->img->line_length
+			+ line->x * (vars->img->bpp / 8) + 1]
+			= texture->addr[line->tex_y * texture->line_length
+			+ line->tex_x * (texture->bpp / 8) + 1];
+		vars->img->addr[line->y * vars->img->line_length
+			+ line->x * (vars->img->bpp / 8) + 2]
+			= texture->addr[line->tex_y * texture->line_length
+			+ line->tex_x * (texture->bpp / 8) + 2];
+	}
 }
 
 void	verline_texture(t_data *texture, t_all *vars, t_line *line, t_ray *ray)
@@ -63,16 +71,8 @@ void	verline_color(t_all *vars, t_line *line, int color)
 {
 	int		y_max;
 
-	if (line->start < line->end)
-	{
-		line->y = line->start;
-		y_max = line->end;
-	}
-	else
-	{
-		line->y = line->end;
-		y_max = line->start;
-	}
+	line->y = line->start;
+	y_max = line->end;
 	if (line->y >= 0)
 	{
 		while (line->y < y_max)

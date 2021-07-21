@@ -23,8 +23,8 @@ int	init_user(t_all *vars)
 	vars->user->pos_y = 0;
 	vars->user->dir_x = 0;
 	vars->user->dir_y = 0;
-	vars->user->move_speed = 0.1;
-	vars->user->rot_speed = 0.1;
+	vars->user->move_speed = 0.04;
+	vars->user->rot_speed = 0.04;
 	return (1);
 }
 

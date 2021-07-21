@@ -146,24 +146,6 @@ typedef struct s_line
 	int					end;
 }	t_line;
 
-typedef struct s_bmp
-{
-	int					size;
-	int					width;
-	int					height;
-	int					reserve;
-	int					offset;
-	int					headers;
-	int					color;
-	int					bit_pixel;
-	int					compression;
-	int					size_a;
-	int					x;
-	int					y;
-	int					colors;
-	int					color_i;
-}	t_bmp;
-
 typedef struct s_sprite
 {
 	int					x;
@@ -214,7 +196,6 @@ typedef struct s_all
 	t_check				*check;
 	t_keybuffer			*key;
 	t_textures			*textures_op;
-	t_bmp				*bmp;
 	t_sprites			*sprites_on_screen;
 	t_data				**textures;
 }	t_all;
@@ -231,7 +212,7 @@ char					*ft_strchr(const char *s, int c);
 void					save_textures(t_all *vars, int *x, int *y);
 char					*save_num(t_all *vars, int	*x, int	*y);
 void					fd_arg(t_all *vars, char **argv, int argc);
-void					ft_free_tab(t_all *vars, int *len);
+void					ft_free_tab(t_all *vars);
 void					save_color(t_all *vars, int *x, int *y, char c);
 void					start_player(t_all *vars, char	dir);
 void					too_small(char *str);
@@ -244,7 +225,7 @@ int						parse_scene(t_all *vars, char **argv, int argc);
 void					recup_textures2(t_all *vars, int *x, int *tmp, int *y);
 void					save_textures2(t_all *vars, int *x, int start, int len);
 int						save_map(t_all *vars, int *x, int *y, int cpt_line);
-void					save_map2(t_all *vars, int *x, int check_player);
+void					save_map2(t_all *vars, int check_player);
 int						check_world_map(t_all *vars);
 void					check_fd(t_all *vars, int argc, char **argv);
 void					side(t_ray *ray, int *index);
@@ -271,7 +252,6 @@ void					left(t_all *vars);
 void					turn_left(t_all *vars);
 void					turn_right(t_all *vars);
 int						close_window(int key, void *param);
-int						ft_bmp(t_image *img, t_all *vars);
 void					free_map(t_map *map);
 void					is_sprite(t_all *vars);
 void					sprite(t_ray *ray, t_all *vars);

@@ -120,5 +120,6 @@ int	draw_sprite(t_all *vars, t_ray *ray)
 		draw->i++;
 	}
 	free(draw->sprites);
+	free(draw);
 	return (1);
 }

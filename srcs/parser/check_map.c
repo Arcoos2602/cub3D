@@ -100,9 +100,7 @@ int	save_map(t_all *vars, int *x, int *y, int cpt_line)
 	}
 	if (check_player < 1)
 		ft_error(17, vars);
-	if (check_player > 1)
-		ft_error(3, vars);
 	vars->map->world_map[x_map] = NULL;
-	save_map2(vars, x, check_player);
+	save_map2(vars, check_player);
 	return (1);
 }
