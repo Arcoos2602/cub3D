@@ -58,7 +58,8 @@ void	free_all(t_all *vars, int check)
 	free(vars->check);
 	free(vars->key);
 	free(vars->cam);
-	free_map(vars->map);
+	if (vars->map != NULL)
+		free_map(vars->map);
 	free(vars->map);
 	free(vars->textures_op->north);
 	free(vars->textures_op->south);
@@ -79,14 +80,18 @@ void	free_all(t_all *vars, int check)
 			free(vars->textures[i]);
 	}
 	free(vars->textures);
-	free(vars->img);
 }
 
 void	exit_game(t_all *vars, int check)
 {
-	if (check == 1)
-		//exit(EXIT_SUCCESS);
+	if (check == 2)
+	{
 		free_all(vars, check);
+		exit(1);
+		mlx_destroy_display(vars->img->mlx_ptr);
+		free(vars->img->mlx_ptr);
+		free(vars->img);
+	}
 	else
 	{
 		mlx_destroy_window(vars->img->mlx_ptr, vars->img->win_ptr);
@@ -94,6 +99,7 @@ void	exit_game(t_all *vars, int check)
 		free_all(vars, check);
 		mlx_destroy_display(vars->img->mlx_ptr);
 		free(vars->img->mlx_ptr);
+		free(vars->img);
 	}
 	exit(EXIT_SUCCESS);
 }
