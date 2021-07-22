@@ -84,9 +84,11 @@ int	key_released(int key, void *param)
 	return (1);
 }
 
-int	close_window(int key, t_all	*vars)
+int	close_window(void *param)
 {
-	(void)key;
+	t_all *vars;
+
+	vars = (t_all *)param;
 	exit_game(vars, 2);
 	return (1);
 }

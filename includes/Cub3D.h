@@ -209,7 +209,7 @@ void					right(t_all *vars);
 void					left(t_all *vars);
 void					turn_left(t_all *vars);
 void					turn_right(t_all *vars);
-int						close_window(int key, t_all *vars);
+int						close_window(void *param);
 void					free_map(t_map *map);
 void					check_res(t_all *vars, int *x, int *y);
 void					check_tex(char *tex, t_all *vars);

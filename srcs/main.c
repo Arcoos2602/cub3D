@@ -15,9 +15,7 @@
 
 /*
  segfault quand pas de map
-1. ID la plusieurs fois
-2. Corriger erreurs graphiques
-3. Leaks
+ check_borders
 */
 
 int	init_img(t_all *vars)
@@ -34,10 +32,10 @@ void	mlx(t_all vars)
 {
 	if (vars.check_init == 0)
 		init_img(&vars);
+	mlx_hook(vars.img->win_ptr, 33, 1L << 17, close_window, &vars);
 	mlx_hook(vars.img->win_ptr, 2, 1L << 0, key_pressed, &vars);
 	mlx_hook(vars.img->win_ptr, 3, 1L << 1, key_released, &vars);
 	mlx_loop_hook(vars.img->mlx_ptr, loop, &vars);
-	mlx_hook(vars.img->win_ptr, 33, 1L << 17, close_window, &vars);
 	mlx_loop(vars.img->mlx_ptr);
 }
 

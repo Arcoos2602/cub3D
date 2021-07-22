@@ -57,4 +57,5 @@ G: fclean $(OBJ)
 	make -C ./Libft
 	gcc $(SRCS) $(CFLAGS2) -o $(NAME) $(LMLX_3)
 re: fclean all
-.PHONY: bonus  all clean fclean r e
+.PHONY: bonus  all clean fclean re
+
