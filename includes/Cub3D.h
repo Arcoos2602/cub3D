@@ -102,7 +102,6 @@ typedef struct s_ray
 	int					side;
 	int					draw_start;
 	int					draw_end;
-	double				*z_buffer;
 }	t_ray;
 
 typedef struct s_keybuffer
@@ -146,44 +145,6 @@ typedef struct s_line
 	int					end;
 }	t_line;
 
-typedef struct s_sprite
-{
-	int					x;
-	int					y;
-}	t_sprite;
-
-typedef struct s_sprites
-{
-	int					x;
-	int					y;
-	struct s_sprites	*next;
-}	t_sprites;
-
-typedef struct s_draw_sprite
-{
-	t_sprite			*sprites;
-	int					i;
-	double				sprite_x;
-	double				sprite_y;
-	double				inv_det;
-	double				transform_x;
-	double				transform_y;
-	int					sprite_screen_x;
-	int					sprite_height;
-	int					draw_start_y;
-	int					draw_end_y;
-	int					sprite_width;
-	int					draw_start_x;
-	int					draw_end_x;
-	int					stripe;
-	int					y;
-	int					d;
-	int					tex_x;
-	int					tex_y;
-	int					color;
-	int					totcolor;
-}	t_draw_sprite;
-
 typedef struct s_all
 {
 	int					count_elem;
@@ -196,7 +157,6 @@ typedef struct s_all
 	t_check				*check;
 	t_keybuffer			*key;
 	t_textures			*textures_op;
-	t_sprites			*sprites_on_screen;
 	t_data				**textures;
 }	t_all;
 
@@ -253,14 +213,7 @@ void					turn_left(t_all *vars);
 void					turn_right(t_all *vars);
 int						close_window(int key, void *param);
 void					free_map(t_map *map);
-void					is_sprite(t_all *vars);
-void					sprite(t_ray *ray, t_all *vars);
-t_sprite				*list_to_tab(t_all *vars);
-int						draw_sprite(t_all *vars, t_ray *ray);
-void					sprites_order(t_all *vars, t_sprite *sprites,
-							int nbr_sprites);
 void					check_res(t_all *vars, int *x, int *y);
 void					check_tex(char *tex, t_all *vars);
-void					free_sprites(t_sprites *sprites);
 
 #endif

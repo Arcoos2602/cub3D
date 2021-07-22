@@ -61,7 +61,6 @@ void	do_raycasting(t_ray *ray, t_all *vars)
 	step(ray, vars);
 	hit(ray, vars);
 	current_stripe(ray, vars);
-	ray->z_buffer[ray->pix] = ray->perp_wall_dist;
 	texture(vars, ray);
 	ray->pix++;
 }
@@ -74,17 +73,11 @@ int	raycasting(t_all *vars)
 	if (ray == NULL)
 		return (-1);
 	ft_bzero(ray, sizeof(t_ray));
-	ray->z_buffer = malloc(sizeof(double) * vars->map->res_x);
-	if (ray->z_buffer == NULL)
-		return (-1);
 	ray->pix = 0;
 	while (ray->pix < vars->map->res_x)
 		do_raycasting(ray, vars);
-	if (!draw_sprite(vars, ray))
-		return (-1);
 	mlx_put_image_to_window(vars->img->mlx_ptr,
 		vars->img->win_ptr, vars->img->img_ptr, 0, 0);
-	free(ray->z_buffer);
 	free(ray);
 	return (1);
 }

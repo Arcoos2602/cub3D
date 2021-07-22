@@ -63,8 +63,8 @@ void	set_textures(t_all *vars)
 	int		i;
 	char	*texture_path;
 
-	i = 0;
-	while (i < 5)
+	i = -1;
+	while (++i < 4)
 	{
 		texture_path = ft_strdup(set_path(vars, i));
 		vars->textures[i]->img_ptr
@@ -79,7 +79,6 @@ void	set_textures(t_all *vars)
 		if (vars->textures[i]->addr == NULL)
 			ft_error(14, vars);
 		free(texture_path);
-		i++;
 	}
 	vars->textures[i] = NULL;
 }

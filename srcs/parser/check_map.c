@@ -66,7 +66,7 @@ int	check_world_map(t_all *vars)
 	{
 		while (vars->map->world_map[y][++x] != '\0')
 		{
-			if (ft_compare_c_to_s(vars->map->world_map[y][x], "02NSOE"))
+			if (ft_compare_c_to_s(vars->map->world_map[y][x], "0NSOE"))
 				ft_map_check_2(vars, y, x);
 			else if (ft_compare_c_to_s(vars->map->world_map[y][x], " 1") == 0)
 				ft_error(9, vars);

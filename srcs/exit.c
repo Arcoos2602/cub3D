@@ -66,15 +66,19 @@ void	free_all(t_all *vars, int check)
 	free(vars->textures_op->west);
 	free(vars->textures_op->sprite);
 	free(vars->textures_op);
-	if (vars->sprites_on_screen != NULL)
-		free_sprites(vars->sprites_on_screen);
-	free(vars->sprites_on_screen);
 	if (check >= 1)
-		while (++i < 5)
+	{
+		while (++i < 4)
 		{
 			mlx_destroy_image(vars->img->mlx_ptr, vars->textures[i]->img_ptr);
 			free(vars->textures[i]);
 		}
+	}
+	else
+	{
+		while (++i < 4)
+			free(vars->textures[i]);
+	}
 	free(vars->textures);
 	free(vars->img);
 }
@@ -100,7 +104,7 @@ void	ft_error(int n, t_all *vars)
 {
 	int		check;
 
-	check = 1;
+	check = 0;
 	if (n == 0)
 		ft_putstr_fd("Error\nPlease only commas after R, G and B\n", 2);
 	if (n == 1)
@@ -118,6 +122,8 @@ void	ft_error(int n, t_all *vars)
 	if (n == 7)
 		ft_putstr_fd("Error\nA floor or sky id if here several times\n", 2);
 	ft_error2(n, &check);
-	//free_all(vars, check);
+	free_all(vars, check);
+	mlx_destroy_display(vars->img->mlx_ptr);
+	free(vars->img->mlx_ptr);
 	exit(EXIT_FAILURE);
 }

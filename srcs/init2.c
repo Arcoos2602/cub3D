@@ -43,10 +43,10 @@ int	init_textures(t_all *vars)
 	int		i;
 
 	i = 0;
-	vars->textures = malloc(sizeof(t_image *) * 6);
+	vars->textures = malloc(sizeof(t_image *) * 5);
 	if (vars->textures == NULL)
 		return (-1);
-	while (i < 5)
+	while (i < 4)
 	{
 		vars->textures[i] = malloc(sizeof(t_data));
 		if (vars->textures[i] == NULL)

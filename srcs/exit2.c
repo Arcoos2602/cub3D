@@ -13,13 +13,6 @@
 #include "../includes/Cub3D.h"
 #include "../Libft/includes/libft.h"
 
-void	free_sprites(t_sprites *sprites)
-{
-	if (sprites->next != NULL)
-		free_sprites(sprites->next);
-	free(sprites);
-}
-
 void	free_map(t_map *map)
 {
 	int	x;

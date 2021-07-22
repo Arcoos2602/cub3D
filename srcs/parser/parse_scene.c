@@ -26,6 +26,7 @@ int	ft_cpt_line(t_all *vars)
 	}
 	x++;
 	free(line);
+	close(vars->map->fd);
 	return (x);
 }
 

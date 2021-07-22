@@ -53,17 +53,6 @@ int	init_cam(t_all *vars)
 	return (1);
 }
 
-int	init_sprites(t_all *vars)
-{
-	vars->sprites_on_screen = malloc(sizeof(t_list));
-	if (vars->sprites_on_screen == NULL)
-		return (-1);
-	ft_bzero(vars->sprites_on_screen, sizeof(t_list));
-	vars->sprites_on_screen->x = -1;
-	vars->sprites_on_screen->y = -1;
-	return (1);
-}
-
 int	init_all(t_all *vars)
 {
 	vars->count_elem = 0;
@@ -83,8 +72,6 @@ int	init_all(t_all *vars)
 	if (!(init_key(vars) == 1))
 		return (-1);
 	if (!(init_textures(vars) == 1))
-		return (-1);
-	if (!(init_sprites(vars) == 1))
 		return (-1);
 	return (1);
 }

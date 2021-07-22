@@ -67,7 +67,5 @@ void	hit(t_ray *ray, t_all *vars)
 		{
 			ray->hit = 1;
 		}
-		else if (vars->map->world_map[vars->map->y][vars->map->x] == '2')
-			is_sprite(vars);
 	}
 }
