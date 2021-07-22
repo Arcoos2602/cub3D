@@ -38,7 +38,6 @@ typedef struct s_check
 	int					east;
 	int					floor;
 	int					sky;
-	int					sprite;
 }	t_check;
 
 typedef struct s_user
@@ -120,7 +119,6 @@ typedef struct s_textures
 	char				*south;
 	char				*east;
 	char				*west;
-	char				*sprite;
 }	t_textures;
 
 typedef struct s_image

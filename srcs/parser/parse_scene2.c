@@ -25,15 +25,6 @@ void	recup_textures3(t_all *vars, int *x, int *tmp, int *y)
 		save_textures(vars, x, tmp);
 		vars->check->west++;
 	}
-	if (vars->map->tab[*x][*y] == 'S' && vars->map->tab[*x][*y + 1] == ' ')
-	{
-		if (vars->check->sprite == 1)
-			ft_error(6, vars);
-		*tmp += 1;
-		vars->check_tex = 'P';
-		save_textures(vars, x, tmp);
-		vars->check->sprite++;
-	}
 }
 
 void	recup_textures(t_all *vars, int *x, int *y)
@@ -113,6 +104,6 @@ void	recup_all(t_all *vars, int *x, int *y, int cpt_line)
 		vars->count_elem++;
 	}
 	recup_textures(vars, x, y);
-	if (vars->count_elem == 8)
+	if (vars->count_elem == 7)
 		recup_map(vars, x, y, cpt_line);
 }

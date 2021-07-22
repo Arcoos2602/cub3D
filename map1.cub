@@ -1,4 +1,4 @@
-R   500 500
+R   2000 500
 C  255,255,0
 F  255,0,255
 NO ./textures/purplestone.xpm
@@ -10,5 +10,5 @@ S  ./textures/pillar.xpm
 1111
 10001
 1N001
-111010
+11101
 11111

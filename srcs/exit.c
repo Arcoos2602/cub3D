@@ -64,7 +64,6 @@ void	free_all(t_all *vars, int check)
 	free(vars->textures_op->south);
 	free(vars->textures_op->east);
 	free(vars->textures_op->west);
-	free(vars->textures_op->sprite);
 	free(vars->textures_op);
 	if (check >= 1)
 	{

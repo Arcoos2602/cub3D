@@ -52,8 +52,6 @@ char	*set_path(t_all *vars, int i)
 		return (vars->textures_op->east);
 	if (i == 3)
 		return (vars->textures_op->west);
-	if (i == 4)
-		return (vars->textures_op->sprite);
 	else
 		return (NULL);
 }

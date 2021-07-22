@@ -55,7 +55,7 @@ void	check_elem(t_all *vars)
 		|| vars->map->floor_color == 0
 		|| vars->map->sky_color == 0 || vars->textures_op->north == 0
 		|| vars->textures_op->south == 0 || vars->textures_op->west == 0
-		|| vars->textures_op->east == 0 || vars->textures_op->sprite == 0)
+		|| vars->textures_op->east == 0)
 		ft_error(13, vars);
 }
 
@@ -75,7 +75,7 @@ int	parse_scene(t_all *vars, char **argv, int argc)
 	if (!(malloc_tab(vars)))
 		return (-1);
 	x = 0;
-	while (vars->count_elem < 8 && vars->map->tab[x] != NULL)
+	while (vars->count_elem < 7 && vars->map->tab[x] != NULL)
 	{
 		recup_all(vars, &x, &y, cpt_line);
 		x++;

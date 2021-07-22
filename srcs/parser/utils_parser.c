@@ -66,12 +66,6 @@ void	save_textures2(t_all *vars, int *x, int strt, int l)
 				vars->map->tab[*x], strt, l + 1);
 		check_tex(vars->textures_op->west, vars);
 	}
-	if (vars->check_tex == 'P')
-	{
-		vars->textures_op->sprite = ft_substr(
-				vars->map->tab[*x], strt, l + 1);
-		check_tex(vars->textures_op->sprite, vars);
-	}
 }
 
 void check_tex(char *tex, t_all *vars)
