@@ -77,6 +77,6 @@ int	main(int argc, char **argv)
 			ft_error(16, &vars);
 		mlx(vars);
 	}
-	exit_game(&vars, 0);
+	//exit_game(&vars, 0);
 	return (1);
 }

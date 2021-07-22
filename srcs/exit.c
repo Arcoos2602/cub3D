@@ -66,20 +66,33 @@ void	free_all(t_all *vars, int check)
 	free(vars->textures_op->west);
 	free(vars->textures_op->sprite);
 	free(vars->textures_op);
-	if (vars->sprites_on_screen == NULL)
-		free(vars->sprites_on_screen); // free en cascade si besoin
-	free(vars->img);
+	if (vars->sprites_on_screen != NULL)
+		free_sprites(vars->sprites_on_screen);
+	free(vars->sprites_on_screen);
 	if (check >= 1)
 		while (++i < 5)
+		{
+			mlx_destroy_image(vars->img->mlx_ptr, vars->textures[i]->img_ptr);
 			free(vars->textures[i]);
+		}
+	free(vars->textures);
+	free(vars->img);
 }
 
 void	exit_game(t_all *vars, int check)
 {
-	mlx_destroy_window(vars->img->mlx_ptr, vars->img->win_ptr);
-	mlx_destroy_image(vars->img->mlx_ptr, vars->img->img_ptr);
-	free(vars->img->mlx_ptr);
-	free_all(vars, check); //probleme
+	if (check == 1)
+		//exit(EXIT_SUCCESS);
+		free_all(vars, check);
+	else
+	{
+		mlx_destroy_window(vars->img->mlx_ptr, vars->img->win_ptr);
+		mlx_destroy_image(vars->img->mlx_ptr, vars->img->img_ptr);
+		//free(vars->img->mlx_ptr);
+		free_all(vars, check);
+		mlx_destroy_display(vars->img->mlx_ptr);
+		free(vars->img->mlx_ptr);
+	}
 	exit(EXIT_SUCCESS);
 }
 

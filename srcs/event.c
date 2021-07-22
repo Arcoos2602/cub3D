@@ -48,7 +48,7 @@ int	key_pressed(int key, void *param)
 
 	vars = (t_all *)param;
 	if (key == ECHAP)
-		exit_game(vars, 1);
+		exit_game(vars, 2);
 	else if (key == FORWARD && vars->key->forward == 0)
 		vars->key->forward = 1;
 	else if (key == BACKWARD && vars->key->backward == 0)

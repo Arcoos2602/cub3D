@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
-
 #include "../Libft/includes/libft.h"
 
 static void	next_sprite(t_sprites *actual, t_sprites *new, t_all *vars)

@@ -261,5 +261,6 @@ void					sprites_order(t_all *vars, t_sprite *sprites,
 							int nbr_sprites);
 void					check_res(t_all *vars, int *x, int *y);
 void					check_tex(char *tex, t_all *vars);
+void					free_sprites(t_sprites *sprites);
 
 #endif

@@ -13,6 +13,13 @@
 #include "../includes/Cub3D.h"
 #include "../Libft/includes/libft.h"
 
+void	free_sprites(t_sprites *sprites)
+{
+	if (sprites->next != NULL)
+		free_sprites(sprites->next);
+	free(sprites);
+}
+
 void	free_map(t_map *map)
 {
 	int	x;
@@ -21,6 +28,7 @@ void	free_map(t_map *map)
 	while (map->world_map[++x] != NULL)
 		free(map->world_map[x]);
 	free(map->world_map[x]);
+	free(map->world_map);
 }
 
 void	ft_error3(int n, int *check)
