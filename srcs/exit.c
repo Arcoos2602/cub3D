@@ -91,7 +91,6 @@ void	exit_game(t_all *vars, int check)
 	{
 		mlx_destroy_window(vars->img->mlx_ptr, vars->img->win_ptr);
 		mlx_destroy_image(vars->img->mlx_ptr, vars->img->img_ptr);
-		//free(vars->img->mlx_ptr);
 		free_all(vars, check);
 		mlx_destroy_display(vars->img->mlx_ptr);
 		free(vars->img->mlx_ptr);

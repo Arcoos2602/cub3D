@@ -14,7 +14,7 @@
 #include "../Libft/includes/libft.h"
 
 /*
-
+ segfault quand pas de map
 1. ID la plusieurs fois
 2. Corriger erreurs graphiques
 3. Leaks
