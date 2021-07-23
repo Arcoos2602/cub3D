@@ -16,16 +16,10 @@
 void	check_fd2(t_all *vars, int argc, char **argv, int check)
 {
 	if (vars->map->fd < 0)
-	{
-		ft_putstr_fd(strerror(2), 2);
-		exit(EXIT_FAILURE);
-	}
+		ft_error(23, vars);
 	ft_reverse(argv[argc - check]);
 	if (ft_strncmp(argv[argc - check], "buc.", 4) > 0)
-	{
-		ft_putstr_fd("Invalid extension, please use .cub\n", 2);
-		exit(EXIT_FAILURE);
-	}
+		ft_error(22, vars);
 }
 
 void	check_fd(t_all *vars, int argc, char **argv)
@@ -34,10 +28,7 @@ void	check_fd(t_all *vars, int argc, char **argv)
 
 	check = 1;
 	if (argc >= 3)
-	{
-		ft_putstr_fd("Too much arguments please give only one scene\n", 2);
-		exit(EXIT_FAILURE);
-	}
+		ft_error(21, vars);
 	if (argc == 3)
 		check = 2;
 	if (ft_strncmp(argv[argc - check], "./cub3D", 8) == 0)
@@ -58,7 +49,7 @@ void	free_all(t_all *vars, int check)
 	free(vars->check);
 	free(vars->key);
 	free(vars->cam);
-	if (vars->map != NULL)
+	if (vars->map != NULL);
 		free_map(vars->map);
 	free(vars->map);
 	free(vars->textures_op->north);
@@ -130,5 +121,6 @@ void	ft_error(int n, t_all *vars)
 	free_all(vars, check);
 	mlx_destroy_display(vars->img->mlx_ptr);
 	free(vars->img->mlx_ptr);
+	free(vars->img);
 	exit(EXIT_FAILURE);
 }

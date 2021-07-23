@@ -14,6 +14,7 @@
 #include "../Libft/includes/libft.h"
 
 /*
+free.c
  segfault quand pas de map
  check_borders
 */

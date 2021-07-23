@@ -41,7 +41,7 @@ int	ft_compare_c_to_s(char c, char *str)
 int	ft_map_check_2(t_all *vars, int y, int x)
 {
 	if (y == 0 || vars->map->world_map[y + 1] == 0 || x == 0)
-		ft_error(3, vars);
+		ft_error(9, vars);
 	if (vars->map->world_map[y][x - 1] == ' ' ||
 		vars->map->world_map[y][x + 1] == ' ' ||
 		vars->map->world_map[y][x + 1] == '\0')
@@ -90,6 +90,7 @@ int	save_map(t_all *vars, int *x, int *y, int cpt_line)
 	{
 		*y = 0;
 		vars->map->world_map[x_map] = ft_strdup(vars->map->tab[*x]);
+		//printf("%s\n", vars->map->tab[*x]);
 		while (vars->map->world_map[x_map][*y] != '\0')
 		{
 			start_pos(vars, x_map, *y, &check_player);

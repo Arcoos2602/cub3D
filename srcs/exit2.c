@@ -18,10 +18,15 @@ void	free_map(t_map *map)
 	int	x;
 
 	x = -1;
-	while (map->world_map[++x] != NULL)
-		free(map->world_map[x]);
-	free(map->world_map[x]);
-	free(map->world_map);
+	if (map->world_map != NULL)
+	{
+		while (map->world_map[++x] != NULL)
+		{
+			printf("%s\n", map->world_map[x]);
+			free(map->world_map[x]);
+		}
+		free(map->world_map);
+	}
 }
 
 void	ft_error3(int n, int *check)
@@ -30,6 +35,17 @@ void	ft_error3(int n, int *check)
 		ft_putstr_fd("Error\nOnly numbers in res please\n", 2);
 	if (n == 19)
 		ft_putstr_fd("Error\nPlease only use .xpm for textures\n", 2);
+	if (n == 20)
+		ft_putstr_fd("No such path to texture\n", 2);
+	if (n == 21)
+		ft_putstr_fd("Too much arguments please give only one scene\n", 2);
+	if (n == 22)
+		ft_putstr_fd("Invalid extension, please use .cub\n", 2);
+	if (n == 23)
+	{
+		ft_putstr_fd(strerror(2), 2);
+		ft_putchar_fd('\n', 2);
+	}
 }
 
 void	ft_error2(int n, int *check)

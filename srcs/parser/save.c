@@ -107,7 +107,7 @@ void	save_textures(t_all *vars, int *x, int *y)
 	while (ft_isascii(vars->map->tab[*x][++*y]) && vars->map->tab[*x][*y])
 		len++;
 	str_check = ft_substr(vars->map->tab[*x], start, len + 1);
-	check_texture_fd(str_check);
+	check_texture_fd(str_check, vars);
 	free(str_check);
 	if (vars->check_tex == 'N')
 	{

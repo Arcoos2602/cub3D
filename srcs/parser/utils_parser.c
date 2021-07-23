@@ -18,17 +18,14 @@ unsigned long	convert_rgb_to_hex(int r, int g, int b)
 	return (r << 16 | g << 8 | b);
 }
 
-void	check_texture_fd(char *str)
+void	check_texture_fd(char *str, t_all *vars)
 {
 	int		fd;
 
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_putstr_fd("No such path to texture :\n", 2);
-		ft_putstr_fd(str, 2);
-		ft_putchar_fd('\n', 2);
-		exit(EXIT_FAILURE);
+		ft_error(20, vars);
 	}
 	close(fd);
 }

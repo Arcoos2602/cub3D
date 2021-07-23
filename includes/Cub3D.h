@@ -175,7 +175,7 @@ void					save_color(t_all *vars, int *x, int *y, char c);
 void					start_player(t_all *vars, char	dir);
 void					too_small(char *str);
 unsigned long			convert_rgb_to_hex(int r, int g, int b);
-void					check_texture_fd(char *str);
+void					check_texture_fd(char *str, t_all *vars);
 void					texture(t_all *vars, t_ray *ray);
 void					set_textures(t_all *vars);
 void					recup_all(t_all *vars, int *x, int *y, int cpt_line);
