@@ -197,7 +197,7 @@ void					current_stripe(t_ray *ray, t_all *vars);
 int						raycasting(t_all *vars);
 void					id_error(t_all *vars);
 void					ft_error(int n, t_all *vars);
-void					ft_error2(int n, int *check);
+void					ft_error2(int n, int *check, t_all *vars);
 void					exit_game(t_all *vars, int check);
 int						ft_atoi_free(char *str);
 int						loop(void *param);

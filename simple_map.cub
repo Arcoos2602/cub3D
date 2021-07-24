@@ -2,11 +2,9 @@ R   500     500
 F  220,100,125
 C  221,102,255
 NO ./textures/o.xpm
-SO ./textures/o.xpm
-WE ./textures/o.xpm
-EA ./textures/o.xpm
-S  ./textures/pillar.xpm
 
-11111111111
-10000000001
-11111111111
+SO ./textures/o.xpm
+
+WE ./textures/o.xpm
+
+EA ./textures/o.xpm

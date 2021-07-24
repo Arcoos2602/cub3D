@@ -90,7 +90,6 @@ int	save_map(t_all *vars, int *x, int *y, int cpt_line)
 	{
 		*y = 0;
 		vars->map->world_map[x_map] = ft_strdup(vars->map->tab[*x]);
-		//printf("%s\n", vars->map->tab[*x]);
 		while (vars->map->world_map[x_map][*y] != '\0')
 		{
 			start_pos(vars, x_map, *y, &check_player);

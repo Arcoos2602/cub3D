@@ -56,10 +56,15 @@ void	recup_textures(t_all *vars, int *x, int *y)
 
 void	recup_map(t_all *vars, int *x, int *y, int cpt_line)
 {
-	while (vars->map->tab[*x] == NULL &&
-			ft_isdigit(vars->map->tab[*x][0]) == 0
-			&& ft_iswhitespace(vars->map->tab[*x][0]) == 0)
-		++*x;
+	++*x;
+	if (vars->map->tab[*x] == NULL)
+		ft_error(25, vars);
+	if (vars->map->tab[*x][0] == '\0')
+		ft_error(26, vars);
+	*x++;
+	if ((vars->map->tab[*x][0] != ' ' &&
+		 vars->map->tab[*x][0] != '1'))
+		ft_error(24, vars);
 	save_map(vars, x, y, cpt_line);
 	vars->count_elem++;
 }

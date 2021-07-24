@@ -117,7 +117,7 @@ void	ft_error(int n, t_all *vars)
 		ft_putstr_fd("Error\nA texture Id is here several times\n", 2);
 	if (n == 7)
 		ft_putstr_fd("Error\nA floor or sky id if here several times\n", 2);
-	ft_error2(n, &check);
+	ft_error2(n, &check, vars);
 	free_all(vars, check);
 	mlx_destroy_display(vars->img->mlx_ptr);
 	free(vars->img->mlx_ptr);
