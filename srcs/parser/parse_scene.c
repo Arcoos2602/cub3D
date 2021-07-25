@@ -56,7 +56,7 @@ void	check_elem(t_all *vars)
 		|| vars->map->sky_color == 0 || vars->textures_op->north == 0
 		|| vars->textures_op->south == 0 || vars->textures_op->west == 0
 		|| vars->textures_op->east == 0)
-		ft_error(13, vars);
+		ft_error(27, vars);
 }
 
 int	parse_scene(t_all *vars, char **argv, int argc)

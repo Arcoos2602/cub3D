@@ -19,7 +19,7 @@ void	start_pos(t_all *vars, int x_map, int y, int *check_player)
 		|| vars->map->world_map[x_map][y] == 'E'
 		|| vars->map->world_map[x_map][y] == 'W')
 	{
-		vars->user->pos_x = (double)(x_map - 1) + 0.5;
+		vars->user->pos_x = (double)(y) + 0.5;
 		vars->user->pos_y = (double)(x_map) + 0.5;
 		start_player(vars, vars->map->world_map[x_map][y]);
 		vars->map->world_map[x_map][y] = '0';

@@ -25,7 +25,7 @@ void	check_texture_fd(char *str, t_all *vars)
 	fd = open(str, O_RDONLY);
 	if (fd < 0)
 	{
-		ft_error(20, vars);
+		ft_error(28, vars);
 	}
 	close(fd);
 }

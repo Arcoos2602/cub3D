@@ -59,9 +59,13 @@ void	recup_map(t_all *vars, int *x, int *y, int cpt_line)
 	++*x;
 	if (vars->map->tab[*x] == NULL)
 		ft_error(25, vars);
-	if (vars->map->tab[*x][0] == '\0')
+	if (vars->map->tab[*x][0] != '\0')
 		ft_error(26, vars);
-	*x++;
+	while (vars->map->tab[*x] != NULL &&
+			vars->map->tab[*x][0] == '\0')
+		++*x;
+	if (vars->map->tab[*x] == NULL)
+		ft_error(25, vars);
 	if ((vars->map->tab[*x][0] != ' ' &&
 		 vars->map->tab[*x][0] != '1'))
 		ft_error(24, vars);

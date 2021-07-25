@@ -101,22 +101,23 @@ void	ft_error(int n, t_all *vars)
 	int		check;
 
 	check = 0;
+	ft_putstr_fd("Error\n", 2);
 	if (n == 0)
-		ft_putstr_fd("Error\nPlease only commas after R, G and B\n", 2);
+		ft_putstr_fd("Please only commas after R, G and B\n", 2);
 	if (n == 1)
-		ft_putstr_fd("Error\nMax value for rgb is 255\n", 2);
+		ft_putstr_fd("Max value for rgb is 255\n", 2);
 	if (n == 2)
-		ft_putstr_fd("Error\nToo small resolution\n", 2);
+		ft_putstr_fd("Too small resolution\n", 2);
 	if (n == 3)
-		ft_putstr_fd("Error\nToo much players\n", 2);
+		ft_putstr_fd("Too much players\n", 2);
 	if (n == 4)
-		ft_putstr_fd("Error\nNo space between x and y resolution\n", 2);
+		ft_putstr_fd("No space between x and y resolution\n", 2);
 	if (n == 5)
-		ft_putstr_fd("Error\nThe ID, R is here several times\n", 2);
+		ft_putstr_fd("The ID, R is here several times\n", 2);
 	if (n == 6)
-		ft_putstr_fd("Error\nA texture Id is here several times\n", 2);
+		ft_putstr_fd("A texture Id is here several times\n", 2);
 	if (n == 7)
-		ft_putstr_fd("Error\nA floor or sky id if here several times\n", 2);
+		ft_putstr_fd("A floor or sky id if here several times\n", 2);
 	ft_error2(n, &check, vars);
 	free_all(vars, check);
 	mlx_destroy_display(vars->img->mlx_ptr);
