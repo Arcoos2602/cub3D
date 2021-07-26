@@ -26,15 +26,10 @@ void	texture_put(t_data *texture, t_all *vars, t_line *line, t_ray *ray)
 
 	d = line->y * texture->line_length - vars->map->res_y * texture->line_length
 		/ 2 + ray->line_height * texture->line_length / 2;
-	/*if (d < 0)
-		printf("AAAAA %lld\n", d);*/
 	line->tex_y = (int)((long long)((d * texture->img_height) / ray->line_height)
 		/ (long long)(texture->line_length));
-	if (line->tex_y < texture->img_height && line->tex_x < texture->img_width)
+	if (line->tex_y >= 0 && line->tex_y < texture->img_height && line->tex_x < texture->img_width)
 	{
-		/*if (line->tex_y * texture->line_length
-			+ line->tex_x * (texture->bpp / 8) < 0)
-			printf("%d %lld\n", line->tex_x, d);*/
 		vars->img->addr[line->y * vars->img->line_length
 			+ line->x * vars->img->bpp / 8]
 			= texture->addr[line->tex_y * texture->line_length

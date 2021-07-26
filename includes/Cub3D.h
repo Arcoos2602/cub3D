@@ -92,7 +92,6 @@ typedef struct s_ray
 	double				perp_wall_dist;
 	double				delta_dist_x;
 	double				delta_dist_y;
-	char				*sprite_buffer;
 	int					step_x;
 	int					step_y;
 	int					pix;

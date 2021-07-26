@@ -35,7 +35,7 @@ void	recup_textures2(t_all *vars, int *x, int *tmp, int *y)
 	if (vars->map->tab[*x][*y] == 'E' && vars->map->tab[*x][*y + 1] == 'A')
 	{
 		if (vars->check->east == 1)
-			ft_error(6, vars);
+			ft_error(42, vars);
 		*tmp += 2;
 		vars->check_tex = 'E';
 		save_textures(vars, x, tmp);

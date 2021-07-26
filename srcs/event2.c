@@ -18,10 +18,12 @@ void	forward(t_all *vars)
 {
 	if (vars->map->world_map[(int)(vars->user->pos_y)]
 			[(int)(vars->user->pos_x + vars->user->dir_x
-			* vars->user->move_speed)] == '0')
+			* (vars->user->move_speed))] == '0')
 		vars->user->pos_x += vars->user->dir_x * vars->user->move_speed;
+		else
+		printf("%f et %f\n",vars->user->pos_x, vars->user->pos_x);
 	if (vars->map->world_map[(int)(vars->user->pos_y
-			+ vars->user->dir_y * vars->user->move_speed)]
+			+ vars->user->dir_y * (vars->user->move_speed))]
 			[(int)vars->user->pos_x] == '0')
 		vars->user->pos_y += vars->user->dir_y * vars->user->move_speed;
 }
@@ -30,10 +32,10 @@ void	backward(t_all *vars)
 {
 	if (vars->map->world_map[(int)vars->user->pos_y]
 		[(int)(vars->user->pos_x
-			- vars->user->dir_x * vars->user->move_speed)] == '0')
+			- vars->user->dir_x * (vars->user->move_speed))] == '0')
 		vars->user->pos_x -= vars->user->dir_x * vars->user->move_speed;
 	if (vars->map->world_map[(int)(vars->user->pos_y
-			- vars->user->dir_y * vars->user->move_speed)]
+			- vars->user->dir_y * (vars->user->move_speed))]
 			[(int)vars->user->pos_x] == '0')
 		vars->user->pos_y -= vars->user->dir_y * vars->user->move_speed;
 }

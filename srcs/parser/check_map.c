@@ -41,17 +41,17 @@ int	ft_compare_c_to_s(char c, char *str)
 int	ft_map_check_2(t_all *vars, int y, int x)
 {
 	if (y == 0 || vars->map->world_map[y + 1] == 0 || x == 0)
-		ft_error(9, vars);
+		ft_error(37, vars);
 	if (vars->map->world_map[y][x - 1] == ' ' ||
 		vars->map->world_map[y][x + 1] == ' ' ||
 		vars->map->world_map[y][x + 1] == '\0')
-		ft_error(9, vars);
+		ft_error(37, vars);
 	if (x > (int)(ft_strlen(vars->map->world_map[y - 1]))
 			|| vars->map->world_map[y - 1][x] == ' ')
-		ft_error(9, vars);
+		ft_error(37, vars);
 	if (x > (int)(ft_strlen(vars->map->world_map[y + 1]))
 			|| vars->map->world_map[y + 1][x] == ' ')
-		        ft_error(9, vars);
+		        ft_error(37, vars);
 	return (1);
 }
 
@@ -69,7 +69,7 @@ int	check_world_map(t_all *vars)
 			if (ft_compare_c_to_s(vars->map->world_map[y][x], "0NSOE"))
 				ft_map_check_2(vars, y, x);
 			else if (ft_compare_c_to_s(vars->map->world_map[y][x], " 1") == 0)
-				ft_error(9, vars);
+				ft_error(37, vars);
 		}
 		x = -1;
 	}
@@ -98,9 +98,9 @@ int	save_map(t_all *vars, int *x, int *y, int cpt_line)
 		++*x;
 		x_map++;
 	}
-	if (check_player < 1)
-		ft_error(17, vars);
 	vars->map->world_map[x_map] = NULL;
+	if (check_player < 1)
+		ft_error(36, vars);
 	save_map2(vars, check_player);
 	return (1);
 }

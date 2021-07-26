@@ -15,7 +15,7 @@
 void	save_map2(t_all *vars, int check_player)
 {
 	if (check_player > 1)
-		ft_error(3, vars);
+		ft_error(40, vars);
 	if (check_world_map(vars) == -1)
 		ft_error(9, vars);
 }

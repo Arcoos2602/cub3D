@@ -19,7 +19,7 @@ void	recup_textures3(t_all *vars, int *x, int *tmp, int *y)
 	if (vars->map->tab[*x][*y] == 'W' && vars->map->tab[*x][*y + 1] == 'E')
 	{
 		if (vars->check->west == 1)
-			ft_error(6, vars);
+			ft_error(42, vars);
 		*tmp += 2;
 		vars->check_tex = 'W';
 		save_textures(vars, x, tmp);
@@ -35,7 +35,7 @@ void	recup_textures(t_all *vars, int *x, int *y)
 	if (vars->map->tab[*x][*y] == 'N' && vars->map->tab[*x][*y + 1] == 'O')
 	{
 		if (vars->check->north == 1)
-			ft_error(6, vars);
+			ft_error(42, vars);
 		tmp += 2;
 		if (vars->map->tab[*x][tmp] != ' ')
 			ft_error(32, vars);
@@ -46,7 +46,7 @@ void	recup_textures(t_all *vars, int *x, int *y)
 	if (vars->map->tab[*x][*y] == 'S' && vars->map->tab[*x][*y + 1] == 'O')
 	{
 		if (vars->check->south == 1)
-			ft_error(6, vars);
+			ft_error(42, vars);
 		tmp += 2;
 		vars->check_tex = 'S';
 		save_textures(vars, x, &tmp);
@@ -83,7 +83,7 @@ void	recup_res(t_all *vars, int *x, int tmp, char *str)
 	if (vars->map->tab[*x][1] != ' ')
 		ft_error(32, vars);
 	if (vars->check->res == 1)
-		ft_error(5, vars);
+		ft_error(41, vars);
 	while (str[++i])
 	{
 		if (ft_isdigit(str[i]) == 0 && str[i] != ' ')
@@ -95,9 +95,13 @@ void	recup_res(t_all *vars, int *x, int tmp, char *str)
 	if (vars->map->tab[*x][tmp] == '\0')
 		ft_error(31, vars);
 	vars->map->res_x = ft_atoi_free(save_num(vars, x, &tmp));
+	if (vars->map->res_x == 0)
+		ft_error(39, vars);
 	if (vars->map->tab[*x][tmp] != ' ')
 		ft_error(33, vars);
 	vars->map->res_y = ft_atoi_free(save_num(vars, x, &tmp));
+	if (vars->map->res_y == 0)
+		ft_error(39, vars);
 	check_res(vars, &vars->map->res_x, &vars->map->res_y);
 	vars->check->res++;
 	vars->count_elem++;
@@ -129,10 +133,9 @@ void	recup_all(t_all *vars, int *x, int *y, int cpt_line)
 	recup_textures(vars, x, y);
 	if (vars->count_elem == 7)
 		recup_map(vars, x, y, cpt_line);
-	if (vars->map->tab[*x][0] != '\0' &&
+	if (vars->map->tab[*x] != NULL &&
+		vars->map->tab[*x][0] != '\0' &&
 			ft_isprint(vars->map->tab[*x][0]) == 1 
 			&& vars->count_elem == count_tmp)
-	{
 		ft_error(35, vars);
-	}
 }

@@ -54,18 +54,30 @@ void	ft_error4(int n, int *check, t_all *vars)
 		ft_putstr_fd("Please only use .xpm for textures\n", 2);
 	if (n == 35)
 		ft_putstr_fd("The scene is invalid due to random characters\n", 2);
-	if (n >= 24 && n <= 35)
+	if (n == 36)
+		ft_putstr_fd("No players\n", 2);
+	if (n == 37)
+		ft_putstr_fd("Map non valide\n", 2);
+	if (n == 38)
+		ft_putstr_fd("Please only commas after R, G and B\n", 2);
+	if (n == 39)
+		ft_putstr_fd("Too small resolution\n", 2);
+	if (n == 40)
+		ft_putstr_fd("Too much players\n", 2);
+	if (n == 41)
+		ft_putstr_fd("The ID, R is here several times\n", 2);
+	if (n == 42)
+		ft_putstr_fd("A texture Id is here several times\n", 2);
+	if (n == 43)
+		ft_putstr_fd("A floor or sky id if here several times\n", 2);
+	if (n == 44)
+		ft_putstr_fd("Only numbers in res please\n", 2);
+	if (n >= 24 && n <= 44)
 		ft_free_tab(vars);
 }
 
 void	ft_error3(int n, int *check, t_all *vars)
 {
-	if (n == 18)
-		ft_putstr_fd("Only numbers in res please\n", 2);
-	/*if (n == 19)
-		ft_putstr_fd("Please only use .xpm for textures\n", 2);*/
-	/*if (n == 20)
-		ft_putstr_fd("No such path to texture\n", 2);*/
 	if (n == 21)
 		ft_putstr_fd("Too much arguments please give only one scene\n", 2);
 	if (n == 22)
@@ -80,18 +92,10 @@ void	ft_error3(int n, int *check, t_all *vars)
 
 void	ft_error2(int n, int *check, t_all *vars)
 {
-	/*if (n == 8)
-		ft_putstr_fd("Please only put numbers in R, G, and B\n", 2);*/
-	if (n == 9)
-		ft_putstr_fd("Map non valide\n", 2);
 	if (n == 10)
 		ft_putstr_fd("Problem during initialization\n", 2);
 	if (n == 11)
 		ft_putstr_fd("Malloc error\n", 2);
-	if (n == 12)
-		ft_putstr_fd(",Wrong character in the map\n", 2);
-	/*if (n == 13)
-		ft_putstr_fd("One or more element are missing\n", 2);*/
 	if (n == 14)
 		ft_putstr_fd("Image reading has failed\n", 2);
 	if (n == 15)
@@ -100,7 +104,5 @@ void	ft_error2(int n, int *check, t_all *vars)
 		ft_putstr_fd("Fails to create a new window\n", 1);
 	if (n == 15 || n == 16)
 		--*check;
-	if (n == 17)
-		ft_putstr_fd("No players\n", 1);
 	ft_error3(n, check, vars);
 }

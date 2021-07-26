@@ -25,8 +25,6 @@ char	*save_num(t_all *vars, int *x, int *y)
 	while (ft_isdigit(vars->map->tab[*x][++*y]))
 		len++;
 	str = ft_substr(vars->map->tab[*x], start, len + 1);
-	if (ft_strlen(str) < 2 || str[0] == 0)
-		ft_error(2, vars);
 	return (str);
 }
 
@@ -46,7 +44,7 @@ int	help_color(t_all *vars, int *x, int *y, int *check)
 	while (ft_isdigit(vars->map->tab[*x][++*y]))
 		len++;
 	if (vars->map->tab[*x][*y] != ',' && *check < 2)
-		ft_error(0, vars);
+		ft_error(38, vars);
 	n = ft_atoi_free(ft_substr(vars->map->tab[*x], start, len + 1));
 	if (n > 255)
 		ft_error(29, vars);
@@ -59,7 +57,7 @@ void	save_color2(t_all *vars, int *x, int tmp, int check)
 	if (vars->check_tex == 'C')
 	{
 		if (vars->check->sky == 1)
-			ft_error(7, vars);
+			ft_error(43, vars);
 		vars->map->sky_color = convert_rgb_to_hex(
 				help_color(vars, x, &tmp, &check),
 				help_color(vars, x, &tmp, &check),
@@ -80,7 +78,7 @@ void	save_color(t_all *vars, int *x, int *y, char c)
 	if (c == 'F')
 	{
 		if (vars->check->floor == 1)
-			ft_error(7, vars);
+			ft_error(43, vars);
 		vars->map->floor_color = convert_rgb_to_hex(
 				help_color(vars, x, &tmp, &check),
 				help_color(vars, x, &tmp, &check),
