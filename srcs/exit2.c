@@ -37,10 +37,24 @@ void	ft_error4(int n, int *check, t_all *vars)
 	if (n == 26)
 		ft_putstr_fd("Needs at least one space before map or there is too much elements\n", 2);
 	if (n == 27)
-		ft_putstr_fd("One or more element are missing or wrond ID\n", 2);
+		ft_putstr_fd("One or more element are missing or wrong ID\n", 2);
 	if (n == 28)
 		ft_putstr_fd("No such path to texture\n", 2);
-	if (n >= 24 && n <= 27)
+	if (n == 29)
+		ft_putstr_fd("Max value for rgb is 255\n", 2);
+	if (n == 30)
+		ft_putstr_fd("Please only put  positive numbers in R, G, and B\n", 2);
+	if (n == 31)
+		ft_putstr_fd("No resolution specified\n", 2);
+	if (n == 32)
+		ft_putstr_fd("There is no space after one or several ID\n", 2);
+	if (n == 33)
+		ft_putstr_fd("No space between x and y resolution\n", 2);
+	if (n == 34)
+		ft_putstr_fd("Please only use .xpm for textures\n", 2);
+	if (n == 35)
+		ft_putstr_fd("The scene is invalid due to random characters\n", 2);
+	if (n >= 24 && n <= 35)
 		ft_free_tab(vars);
 }
 
@@ -48,8 +62,8 @@ void	ft_error3(int n, int *check, t_all *vars)
 {
 	if (n == 18)
 		ft_putstr_fd("Only numbers in res please\n", 2);
-	if (n == 19)
-		ft_putstr_fd("Please only use .xpm for textures\n", 2);
+	/*if (n == 19)
+		ft_putstr_fd("Please only use .xpm for textures\n", 2);*/
 	/*if (n == 20)
 		ft_putstr_fd("No such path to texture\n", 2);*/
 	if (n == 21)
@@ -66,8 +80,8 @@ void	ft_error3(int n, int *check, t_all *vars)
 
 void	ft_error2(int n, int *check, t_all *vars)
 {
-	if (n == 8)
-		ft_putstr_fd("Please only put numbers in R, G, and B\n", 2);
+	/*if (n == 8)
+		ft_putstr_fd("Please only put numbers in R, G, and B\n", 2);*/
 	if (n == 9)
 		ft_putstr_fd("Map non valide\n", 2);
 	if (n == 10)

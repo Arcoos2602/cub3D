@@ -78,8 +78,11 @@ int	parse_scene(t_all *vars, char **argv, int argc)
 	while (vars->count_elem < 7 && vars->map->tab[x] != NULL)
 	{
 		recup_all(vars, &x, &y, cpt_line);
+		/*if (vars->map->tab[x][0] != '\0')
+			printf("%s\n", vars->map->tab[x]);*/
 		x++;
 	}
 	check_elem(vars);
+	ft_free_tab(vars);
 	return (1);
 }

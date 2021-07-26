@@ -14,7 +14,6 @@
 
 void	save_map2(t_all *vars, int check_player)
 {
-	ft_free_tab(vars);
 	if (check_player > 1)
 		ft_error(3, vars);
 	if (check_world_map(vars) == -1)

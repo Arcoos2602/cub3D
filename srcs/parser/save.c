@@ -21,8 +21,6 @@ char	*save_num(t_all *vars, int *x, int *y)
 
 	start = 0;
 	len = 0;
-	while (ft_isdigit(vars->map->tab[*x][++*y]) == 0)
-		;
 	start = *y;
 	while (ft_isdigit(vars->map->tab[*x][++*y]))
 		len++;
@@ -43,7 +41,7 @@ int	help_color(t_all *vars, int *x, int *y, int *check)
 		|| vars->map->tab[*x][*y] == ',')
 		++*y;
 	if (ft_isdigit(vars->map->tab[*x][*y]) == 0)
-		ft_error(8, vars);
+		ft_error(30, vars);
 	start = *y;
 	while (ft_isdigit(vars->map->tab[*x][++*y]))
 		len++;
@@ -51,7 +49,7 @@ int	help_color(t_all *vars, int *x, int *y, int *check)
 		ft_error(0, vars);
 	n = ft_atoi_free(ft_substr(vars->map->tab[*x], start, len + 1));
 	if (n > 255)
-		ft_error(1, vars);
+		ft_error(29, vars);
 	++*check;
 	return (n);
 }

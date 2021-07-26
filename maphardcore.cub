@@ -1,13 +1,10 @@
 R 500 500
-NO	./textures/purplestone.xpm
+NO  ./textures/purplestone.xpm
 SO	./textures/purplestone.xpm
 WE	./textures/purplestone.xpm
 EA  ./textures/purplestone.xpm
-F	220,100,0
-C	225,30,0
-
-
-
+F   220,150,0
+C   220,150,0
 
 
  111111
