@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 12:35:16 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 13:02:45 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/27 16:13:06 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,5 +212,6 @@ int						close_window(void *param);
 void					free_map(t_map *map);
 void					check_res(t_all *vars, int *x, int *y);
 void					check_tex(char *tex, t_all *vars);
+void					free_all(t_all *vars, int check);
 
 #endif

@@ -6,27 +6,12 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 12:47:37 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 16:00:38 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/27 15:34:47 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Cub3D.h"
 #include "../Libft/includes/libft.h"
-
-void	free_map(t_map *map)
-{
-	int	x;
-
-	x = -1;
-	if (map->world_map != NULL)
-	{
-		while (map->world_map[++x] != NULL)
-		{
-			free(map->world_map[x]);
-		}
-		free(map->world_map);
-	}
-}
 
 void	ft_error4(int n, int *check, t_all *vars)
 {

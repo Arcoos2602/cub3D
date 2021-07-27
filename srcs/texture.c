@@ -6,7 +6,7 @@
 /*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 14:19:59 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 15:59:43 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/27 15:33:18 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,16 @@ static void	my_mlx_pixel_put(int *img, int *color)
 
 void	texture_put(t_data *texture, t_all *vars, t_line *line, t_ray *ray)
 {
-	long long d;
+	long long	d;
 
 	d = line->y * texture->line_length - vars->map->res_y * texture->line_length
 		/ 2 + ray->line_height * texture->line_length / 2;
-	line->tex_y = (int)((long long)((d * texture->img_height) / ray->line_height)
-		/ (long long)(texture->line_length));
-	if (line->tex_y >= 0 && line->tex_y < texture->img_height && line->tex_x < texture->img_width)
+	line->tex_y = (int)((long long)((d * texture->img_height)
+				/ ray->line_height)
+			/ (long long)(texture->line_length));
+	if (line->tex_y >= 0
+		&& line->tex_y < texture->img_height
+		&& line->tex_x < texture->img_width)
 	{
 		vars->img->addr[line->y * vars->img->line_length
 			+ line->x * vars->img->bpp / 8]
@@ -51,7 +54,6 @@ void	verline_texture(t_data *texture, t_all *vars, t_line *line, t_ray *ray)
 
 	line->y = line->end;
 	y_max = line->start;
-
 	if (line->y >= 0)
 	{
 		while (line->y < y_max)
@@ -72,7 +74,9 @@ void	verline_color(t_all *vars, t_line *line, int color)
 	{
 		while (line->y < y_max)
 		{
-			my_mlx_pixel_put((int*)(&vars->img->addr[(line->y * vars->img->line_length + line->x * (vars->img->bpp / 8))]), &color);
+			my_mlx_pixel_put((int *)(&vars->img->addr[
+					(line->y * vars->img->line_length
+						+ line->x * (vars->img->bpp / 8))]), &color);
 			line->y++;
 		}
 	}
