@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/25 12:54:57 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 15:59:43 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/28 12:46:48 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	key_released(int key, void *param)
 
 int	close_window(void *param)
 {
-	t_all *vars;
+	t_all	*vars;
 
 	vars = (t_all *)param;
 	exit_game(vars, 2);

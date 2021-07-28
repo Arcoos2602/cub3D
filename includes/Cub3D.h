@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 12:35:16 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/07/27 16:13:06 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/28 14:08:34 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,7 +198,8 @@ void					id_error(t_all *vars);
 void					ft_error(int n, t_all *vars);
 void					ft_error2(int n, int *check, t_all *vars);
 void					exit_game(t_all *vars, int check);
-int						ft_atoi_free(char *str);
+int						ft_atoi_free(char *str, t_all *vars);
+int						ft_atoi_free2(char *str);
 int						loop(void *param);
 int						key_pressed(int key, void *param);
 int						key_released(int key, void *param);

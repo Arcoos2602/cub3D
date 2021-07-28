@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_scene2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/15 09:55:07 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 13:16:03 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/28 14:03:12 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ void	recup_map(t_all *vars, int *x, int *y, int cpt_line)
 		ft_error(25, vars);
 	if (vars->map->tab[*x][0] != '\0')
 		ft_error(26, vars);
-	while (vars->map->tab[*x] != NULL &&
-			vars->map->tab[*x][0] == '\0')
+	while (vars->map->tab[*x] != NULL
+		&& vars->map->tab[*x][0] == '\0')
 		++*x;
 	if (vars->map->tab[*x] == NULL)
 		ft_error(25, vars);
-	if ((vars->map->tab[*x][0] != ' ' &&
-		 vars->map->tab[*x][0] != '1'))
+	if ((vars->map->tab[*x][0] != ' '
+		&& vars->map->tab[*x][0] != '1'))
 		ft_error(24, vars);
 	save_map(vars, x, y, cpt_line);
 	vars->count_elem++;
@@ -85,23 +85,17 @@ void	recup_res(t_all *vars, int *x, int tmp, char *str)
 	if (vars->check->res == 1)
 		ft_error(41, vars);
 	while (str[++i])
-	{
 		if (ft_isdigit(str[i]) == 0 && str[i] != ' ')
 			ft_error(18, vars);
-	}
-	while (vars->map->tab[*x][++tmp] != '\0' &&
-			ft_isdigit(vars->map->tab[*x][tmp]) == 0)
-		;
+	while (vars->map->tab[*x][++tmp] != '\0'
+		&& ft_isdigit(vars->map->tab[*x][tmp]) == 0)
+			;
 	if (vars->map->tab[*x][tmp] == '\0')
 		ft_error(31, vars);
-	vars->map->res_x = ft_atoi_free(save_num(vars, x, &tmp));
-	if (vars->map->res_x == 0)
-		ft_error(39, vars);
+	vars->map->res_x = ft_atoi_free(save_num(vars, x, &tmp), vars);
 	if (vars->map->tab[*x][tmp] != ' ')
 		ft_error(33, vars);
-	vars->map->res_y = ft_atoi_free(save_num(vars, x, &tmp));
-	if (vars->map->res_y == 0)
-		ft_error(39, vars);
+	vars->map->res_y = ft_atoi_free(save_num(vars, x, &tmp), vars);
 	check_res(vars, &vars->map->res_x, &vars->map->res_y);
 	vars->check->res++;
 	vars->count_elem++;
@@ -121,21 +115,15 @@ void	recup_all(t_all *vars, int *x, int *y, int cpt_line)
 		recup_res(vars, x, tmp, &vars->map->tab[*x][tmp]);
 	}
 	if (vars->map->tab[*x][*y] == 'F' && *y == 0)
-	{
 		save_color(vars, x, y, 'F');
-		vars->count_elem++;
-	}
 	if (vars->map->tab[*x][*y] == 'C' && *y == 0)
-	{
 		save_color(vars, x, y, 'C');
-		vars->count_elem++;
-	}
 	recup_textures(vars, x, y);
 	if (vars->count_elem == 7)
 		recup_map(vars, x, y, cpt_line);
-	if (vars->map->tab[*x] != NULL &&
-		vars->map->tab[*x][0] != '\0' &&
-			ft_isprint(vars->map->tab[*x][0]) == 1 
+	if (vars->map->tab[*x] != NULL
+		&& vars->map->tab[*x][0] != '\0' &&
+			ft_isprint(vars->map->tab[*x][0]) == 1
 			&& vars->count_elem == count_tmp)
 		ft_error(35, vars);
 }

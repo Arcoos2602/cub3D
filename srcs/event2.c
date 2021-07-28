@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   event2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 11:27:32 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 15:59:43 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/28 12:47:20 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	forward(t_all *vars)
 			[(int)(vars->user->pos_x + vars->user->dir_x
 			* (vars->user->move_speed))] == '0')
 		vars->user->pos_x += vars->user->dir_x * vars->user->move_speed;
-		else
-		printf("%f et %f\n",vars->user->pos_x, vars->user->pos_x);
 	if (vars->map->world_map[(int)(vars->user->pos_y
 			+ vars->user->dir_y * (vars->user->move_speed))]
 			[(int)vars->user->pos_x] == '0')

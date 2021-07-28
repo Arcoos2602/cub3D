@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thomas <thomas@student.42.fr>              +#+  +:+       +#+         #
+#    By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/04 15:35:18 by tcordonn          #+#    #+#              #
-#    Updated: 2021/05/21 15:38:42 by thomas           ###   ########.fr        #
+#    Updated: 2021/07/28 13:26:15 by tcordonn         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,8 @@ SRCS := \
 	srcs/exit2.c \
 	srcs/texture.c \
 	srcs/start.c \
-	srcs/texture2.c
+	srcs/texture2.c \
+	srcs/free.c
 
 LMLX_3 = -L./Libft -L ./minilibx_linux -lft  -lmlx  -lm -lbsd -lX11 -lXext
 BOFT = $(BO:.c=.o)

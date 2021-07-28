@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_parser.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/29 10:56:02 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 08:48:42 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/28 14:08:56 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	save_textures2(t_all *vars, int *x, int strt, int l)
 	}
 }
 
-void check_tex(char *tex, t_all *vars)
+void	check_tex(char *tex, t_all *vars)
 {
 	int		i;
 	int		len;

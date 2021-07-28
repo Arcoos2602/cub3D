@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 10:48:59 by tcordonn          #+#    #+#             */
-/*   Updated: 2021/05/21 09:24:44 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/28 14:08:23 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	help_color(t_all *vars, int *x, int *y, int *check)
 		len++;
 	if (vars->map->tab[*x][*y] != ',' && *check < 2)
 		ft_error(38, vars);
-	n = ft_atoi_free(ft_substr(vars->map->tab[*x], start, len + 1));
+	n = ft_atoi_free2(ft_substr(vars->map->tab[*x], start, len + 1));
 	if (n > 255)
 		ft_error(29, vars);
 	++*check;
@@ -88,6 +88,7 @@ void	save_color(t_all *vars, int *x, int *y, char c)
 	vars->check_tex = c;
 	save_color2(vars, x, tmp, check);
 	vars->check_tex = 0;
+	vars->count_elem++;
 }
 
 void	save_textures(t_all *vars, int *x, int *y)
@@ -108,7 +109,7 @@ void	save_textures(t_all *vars, int *x, int *y)
 	if (vars->check_tex == 'N')
 	{
 		vars->textures_op->north = ft_substr(
-		vars->map->tab[*x], start, len + 1);
+				vars->map->tab[*x], start, len + 1);
 		check_tex(vars->textures_op->north, vars);
 	}
 	save_textures2(vars, x, start, len);

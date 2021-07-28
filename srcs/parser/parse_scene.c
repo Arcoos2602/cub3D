@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_scene.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 18:02:09 by thomas            #+#    #+#             */
-/*   Updated: 2021/05/24 19:33:46 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/28 13:27:30 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,6 @@ int	parse_scene(t_all *vars, char **argv, int argc)
 	while (vars->count_elem < 7 && vars->map->tab[x] != NULL)
 	{
 		recup_all(vars, &x, &y, cpt_line);
-		/*if (vars->map->tab[x][0] != '\0')
-			printf("%s\n", vars->map->tab[x]);*/
 		x++;
 	}
 	check_elem(vars);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomas <thomas@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tcordonn <tcordonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 15:35:05 by thomas            #+#    #+#             */
-/*   Updated: 2021/07/27 16:12:22 by thomas           ###   ########.fr       */
+/*   Updated: 2021/07/28 13:26:56 by tcordonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,8 @@ void	free_map(t_map *map)
 	}
 }
 
-void	free_all(t_all *vars, int check)
+void	free_all2(t_all *vars, int check)
 {
-	int		i;
-
-	i = -1;
-	free(vars->user);
-	free(vars->check);
-	free(vars->key);
-	free(vars->cam);
-	if (vars->map != NULL)
-		free_map(vars->map);
-	free(vars->map);
-	free(vars->textures_op->north);
-	free(vars->textures_op->south);
-	free(vars->textures_op->east);
 	free(vars->textures_op->west);
 	free(vars->textures_op);
 	if (check >= 1)
@@ -59,4 +46,21 @@ void	free_all(t_all *vars, int check)
 			free(vars->textures[i]);
 	}
 	free(vars->textures);
+}
+
+void	free_all(t_all *vars, int check)
+{
+	int		i;
+
+	i = -1;
+	free(vars->user);
+	free(vars->check);
+	free(vars->key);
+	free(vars->cam);
+	if (vars->map != NULL)
+		free_map(vars->map);
+	free(vars->map);
+	free(vars->textures_op->north);
+	free(vars->textures_op->south);
+	free(vars->textures_op->east);
 }
