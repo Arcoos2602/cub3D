@@ -42,26 +42,24 @@ void	check_fd(t_all *vars, int argc, char **argv)
 
 void	ft_error(int n, t_all *vars)
 {
-	int		check;
-
-	check = 0;
-	ft_putstr_fd("Error\n", 2);
+	if (n != 1)
+		ft_putstr_fd("Error\n", 2);
 	if (n == 0)
 		ft_putstr_fd("Please only commas after R, G and B\n", 2);
-	if (n == 2)
-		ft_putstr_fd("Too small resolution\n", 2);
 	if (n == 3)
 		ft_putstr_fd("Too much players\n", 2);
 	if (n == 5)
 		ft_putstr_fd("The ID, R is here several times\n", 2);
-	if (n == 6)
-		ft_putstr_fd("A texture Id is here several times\n", 2);
-	if (n == 7)
-		ft_putstr_fd("A floor or sky id if here several times\n", 2);
-	ft_error2(n, &check, vars);
-	free_all(vars, check);
+	ft_error2(n, vars);
+	if (vars->img->win_ptr != NULL)
+		mlx_destroy_window(vars->img->mlx_ptr, vars->img->win_ptr);
+	if (vars->img->img_ptr)
+		mlx_destroy_image(vars->img->mlx_ptr, vars->img->img_ptr);
+	free_all(vars);
 	mlx_destroy_display(vars->img->mlx_ptr);
 	free(vars->img->mlx_ptr);
 	free(vars->img);
+	if (n == 1)
+		exit(EXIT_SUCCESS);
 	exit(EXIT_FAILURE);
 }

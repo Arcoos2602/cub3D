@@ -13,10 +13,6 @@
 #include "../includes/Cub3D.h"
 #include "../Libft/includes/libft.h"
 
-/*
-free.c
-*/
-
 int	init_img(t_all *vars)
 {
 	vars->img->img_ptr = mlx_new_image(vars->img->mlx_ptr,
@@ -50,6 +46,8 @@ void	check_res(t_all *vars, int *x, int *y)
 		*x = a;
 	if (*y > b)
 		*y = b;
+	vars->check->res++;
+	vars->count_elem++;
 }
 
 int	main(int argc, char **argv)
@@ -59,10 +57,7 @@ int	main(int argc, char **argv)
 	if (!(init_all(&vars)))
 		ft_error(10, &vars);
 	vars.img->mlx_ptr = mlx_init();
-	if (argc == 3)
-		vars.map->fd = open(argv[argc - 2], O_RDONLY);
-	else
-		vars.map->fd = open(argv[argc - 1], O_RDONLY);
+	vars.map->fd = open(argv[argc - 1], O_RDONLY | O_RDWR);
 	check_fd(&vars, argc, argv);
 	if (parse_scene(&vars, argv, argc))
 	{

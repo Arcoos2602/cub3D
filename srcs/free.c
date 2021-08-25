@@ -28,31 +28,24 @@ void	free_map(t_map *map)
 	}
 }
 
-void	free_all2(t_all *vars, int check)
+void	free_all2(t_all *vars)
 {
+	int	i;
+
+	i = -1;
 	free(vars->textures_op->west);
 	free(vars->textures_op);
-	if (check >= 1)
+	while (++i < 4)
 	{
-		while (++i < 4)
-		{
+		if (vars->textures[i]->img_ptr != NULL)
 			mlx_destroy_image(vars->img->mlx_ptr, vars->textures[i]->img_ptr);
-			free(vars->textures[i]);
-		}
-	}
-	else
-	{
-		while (++i < 4)
-			free(vars->textures[i]);
+		free(vars->textures[i]);
 	}
 	free(vars->textures);
 }
 
-void	free_all(t_all *vars, int check)
+void	free_all(t_all *vars)
 {
-	int		i;
-
-	i = -1;
 	free(vars->user);
 	free(vars->check);
 	free(vars->key);
@@ -63,4 +56,5 @@ void	free_all(t_all *vars, int check)
 	free(vars->textures_op->north);
 	free(vars->textures_op->south);
 	free(vars->textures_op->east);
+	free_all2(vars);
 }

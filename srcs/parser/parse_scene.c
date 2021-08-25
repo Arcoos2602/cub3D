@@ -74,6 +74,8 @@ int	parse_scene(t_all *vars, char **argv, int argc)
 	fd_arg(vars, argv, argc);
 	if (!(malloc_tab(vars)))
 		return (-1);
+	if (vars->map->tab[x][0] == '\0')
+		ft_error(50, vars);
 	x = 0;
 	while (vars->count_elem < 7 && vars->map->tab[x] != NULL)
 	{

@@ -43,6 +43,8 @@ int	help_color(t_all *vars, int *x, int *y, int *check)
 	start = *y;
 	while (ft_isdigit(vars->map->tab[*x][++*y]))
 		len++;
+	if (len > 3)
+		ft_error(54, vars);
 	if (vars->map->tab[*x][*y] != ',' && *check < 2)
 		ft_error(38, vars);
 	n = ft_atoi_free2(ft_substr(vars->map->tab[*x], start, len + 1));
@@ -63,6 +65,8 @@ void	save_color2(t_all *vars, int *x, int tmp, int check)
 				help_color(vars, x, &tmp, &check),
 				help_color(vars, x, &tmp, &check));
 		vars->check->sky++;
+		if (vars->map->tab[*x][tmp] != '\0')
+			ft_error(53, vars);
 	}
 }
 
@@ -83,6 +87,8 @@ void	save_color(t_all *vars, int *x, int *y, char c)
 				help_color(vars, x, &tmp, &check),
 				help_color(vars, x, &tmp, &check),
 				help_color(vars, x, &tmp, &check));
+		if (vars->map->tab[*x][tmp] != '\0')
+			ft_error(52, vars);
 		vars->check->floor++;
 	}
 	vars->check_tex = c;

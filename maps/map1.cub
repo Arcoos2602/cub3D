@@ -1,0 +1,18 @@
+R   500  500
+C  255, 255, 50
+F  255, 255,  255
+
+NO ./textures/purplestone.xpm
+
+SO    ./textures/brick.xpm
+
+
+WE ./textures/wall_1.xpm
+
+EA ./textures/bluestone.xpm
+
+    1
+ 111011
+100000W1
+11110111
+    1

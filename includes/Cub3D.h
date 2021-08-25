@@ -196,8 +196,7 @@ void					current_stripe(t_ray *ray, t_all *vars);
 int						raycasting(t_all *vars);
 void					id_error(t_all *vars);
 void					ft_error(int n, t_all *vars);
-void					ft_error2(int n, int *check, t_all *vars);
-void					exit_game(t_all *vars, int check);
+void					ft_error2(int n, t_all *vars);
 int						ft_atoi_free(char *str, t_all *vars);
 int						ft_atoi_free2(char *str);
 int						loop(void *param);
@@ -213,6 +212,6 @@ int						close_window(void *param);
 void					free_map(t_map *map);
 void					check_res(t_all *vars, int *x, int *y);
 void					check_tex(char *tex, t_all *vars);
-void					free_all(t_all *vars, int check);
+void					free_all(t_all *vars);
 
 #endif

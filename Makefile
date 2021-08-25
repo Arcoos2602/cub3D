@@ -40,7 +40,7 @@ LMLX_3 = -L./Libft -L ./minilibx_linux -lft  -lmlx  -lm -lbsd -lX11 -lXext
 BOFT = $(BO:.c=.o)
 OBJ = $(SRCS:.c=.o)
 HEAD = include
-CFLAGS =  -lm -I $(HEAD) #-Wall -Wextra -Werror
+CFLAGS =  -lm -I $(HEAD) -Wall -Wextra -Werror
 CFLAGS2 = -g3 -fsanitize=address -lm -I $(HEAD)
 CC = gcc
 LIB = ./Libft/libft.a
@@ -59,4 +59,3 @@ G: fclean $(OBJ)
 	gcc $(SRCS) $(CFLAGS2) -o $(NAME) $(LMLX_3)
 re: fclean all
 .PHONY: bonus  all clean fclean re
-

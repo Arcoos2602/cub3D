@@ -17,13 +17,13 @@
 
 void	side(t_ray *ray, int *index)
 {
-	*index = 3;
+	*index = 2;
 	if (ray->side == 3)
 		*index = 0;
 	if (ray->side == 2)
 		*index = 1;
 	if (ray->side == 1)
-		*index = 2;
+		*index = 3;
 }
 
 void	side_draw(t_all *vars, t_ray *ray, t_line *line, t_data *texture[5])

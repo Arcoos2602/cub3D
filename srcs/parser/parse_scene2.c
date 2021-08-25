@@ -95,10 +95,10 @@ void	recup_res(t_all *vars, int *x, int tmp, char *str)
 	vars->map->res_x = ft_atoi_free(save_num(vars, x, &tmp), vars);
 	if (vars->map->tab[*x][tmp] != ' ')
 		ft_error(33, vars);
+	while (ft_iswhitespace(vars->map->tab[*x][tmp]))
+		tmp++;
 	vars->map->res_y = ft_atoi_free(save_num(vars, x, &tmp), vars);
 	check_res(vars, &vars->map->res_x, &vars->map->res_y);
-	vars->check->res++;
-	vars->count_elem++;
 }
 
 void	recup_all(t_all *vars, int *x, int *y, int cpt_line)

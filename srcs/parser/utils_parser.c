@@ -15,7 +15,7 @@
 
 unsigned long	convert_rgb_to_hex(int r, int g, int b)
 {
-	return (r << 16 | g << 8 | b);
+	return (r | g << 8 | b << 16);
 }
 
 void	check_texture_fd(char *str, t_all *vars)
@@ -67,7 +67,6 @@ void	save_textures2(t_all *vars, int *x, int strt, int l)
 
 void	check_tex(char *tex, t_all *vars)
 {
-	int		i;
 	int		len;
 
 	len = ft_strlen(tex);
